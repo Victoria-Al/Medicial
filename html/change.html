@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0，height=device-height"/>
+      <title>title</title>
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <link rel="stylesheet" type="text/css" href="../css/screen.css"/>
+      <style>
+      html {height: 100%;}
+      body {height: 100%;background: #9ed7f1; display: -webkit-box;	display: -webkit-flex;	display: flex; -webkit-box-orient: vertical;-webkit-flex-flow: column;flex-flow: column;}
+      #bottomdivider{ -webkit-box-flex: 1;     -webkit-flex: 1;    flex: 1; }
+      .header {            border-bottom: 1px solid #787874;
+                           background-color: #3993cf;
+                           height:40px;
+              }
+
+      .header .left  .logoleft {position: relative;bottom: 35px;padding: 0px 0px 0px 5px;}
+      .title {font-size: 150%; color: #fff;position: relative;padding: 0px 0px 0px 185px;bottom: 6px;}
+
+      input {height: 50px;font-size: 120%;color: #8E8C8C;width: 80%;outline: none;}
+      input::-webkit-input-placeholder {color: #787874;}
+      .divider {height: 5%;}
+      .email,.passwd {/*margin-top: 3px;*/background: #fff;}
+      .passwd img, .email img {vertical-align: top;}
+      .item {background-color: #9ed7f1; border-bottom: 1px solid #787874;position: relative;padding-left: 1%;margin: 0 20%;}
+      /*.email, .passwd, .btn {margin:3px 10px;}*/
+      .btn {margin:3% 20%;}
+      .btn {background: #4be6c0;height: 40px; text-align: center; line-height: 200%; font-size: 120%;margin-top: 5%;border-radius: 20px;}
+      div{position: relative;}
+      .btn2 {position:absolute;top:19.5%;left:63%}
+      .btn2 {background: #d5d5d5;height: 4%; text-align: center; line-height: 200%; font-size: 100%;border-radius: 5px;}
+      .btn span {color: #fff;}
+      .btn2 span {color: #3993cf;}
+      .email img {width: 25px; margin-top: 15px; margin-left: 10px; margin-right: 9px;}
+      .passwd img {height: 25px;margin-top: 10px; margin-left: 10px;margin-right: 10px;}
+      .secretword img {height: 25px;margin-top: 10px; margin-left: 10px;margin-right: 10px;}
+
+      .btnhover {background: #dcdcdc;}
+      .submit-hover {background-color: rgba(77, 192, 96, 0.6) !important;}
+      </style>
+  </head>
+  <body>
+    <div class="header" id="topbar">
+      <div class="title" id="title">重置密码</div>
+          <a href="main2.html" class="left" tapmode onclick="goback()">
+              <img src="../image/abc_ic_ab_back_holo_dark.png" alt="" class="logoleft">
+          </a>
+          <a></a>
+          <!-- <div class="right" tapmode="headerhover" onclick="">注册</div> -->
+      </div>
+      <div class="divider"></div>
+      <form action="">
+        <div class="item email2"><input type="text" placeholder="请输入您的手机号" id="email2"></div>
+        <div class="item passwd2"><input type="password" placeholder="请输入手机验证码" id="passwd2">
+        </div>
+        <div class="item email"><input type="text" placeholder="请输入您的密码" id="email"></div>
+        <div class="item passwd"><input type="password" placeholder="请确认您的密码" id="passwd">
+        </div>
+
+        <div class="btn" onclick="window.location.href='main2.html'" tapmode="submit-hover"><span type="submit">确 认</span></div>
+        <div class="btn2" onclick="" tapmode="submit-hover"><span type="submit2">手机验证码</span></div>
+      </form>
+  </body>
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script src="../script/zepto.min.js"></script>
+  <script type="text/javascript">
+
+  	function goback () {
+  		api.closeWin({name:'change'})
+  	}
+  	apiready = function() {
+  		$api.fixStatusBar( $api.dom('#topbar') );
+
+      };
+  </script>
+  </html>

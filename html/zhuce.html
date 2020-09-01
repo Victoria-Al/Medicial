@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>title</title>
+      <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+      <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <style>
+      html {height: 100%;}
+      body {height: 100%;background: #9ed7f1; display: -webkit-box;	display: -webkit-flex;	display: flex; -webkit-box-orient: vertical;-webkit-flex-flow: column;flex-flow: column;}
+      #bottomdivider{ -webkit-box-flex: 1;     -webkit-flex: 1;    flex: 1; }
+      .header {position: relative;height: 5%;line-height: 320%;background-color: #3993cf;}
+      .header .left  {position: absolute;left: 0;height: 50px;}
+      .header .left  .logoleft {position: fixed;top: 2.5%;left:1%;height: 3%;width: 10%;}
+      .header .left  .title {font-size: 150%; color: #fff; position: fixed;left: 40%;top: 1.5%;}
+      .tx{
+      position: fixed;
+      left: 33%;
+      top: 9%;
+      }
+      .sctx2{
+      position: fixed;
+      left: 32%;
+      top: 28%;
+      color: #fff;
+      font-size: 115%;
+      }
+      .yyks{
+      position: fixed;
+      left: 74%;
+      top: 47.5%;
+      }
+      .yyks2{
+      position: fixed;
+      left: 74%;
+      top: 41.5%;
+      }
+      input {height: 50px;font-size: 110%;color: #8E8C8C;width: 80%;outline: none;}
+      input::-webkit-input-placeholder {color: #787874;}
+      .divider {height: 26%;}
+      .email,.passwd {/*margin-top: 3px;*/background: #fff;}
+      .passwd img, .email img {vertical-align: top;}
+      .item {background-color: #9ed7f1; border-bottom: 1px solid #787874;position: relative;padding-left: 1%;margin: 0 20%;}
+      /*.email, .passwd, .btn {margin:3px 10px;}*/
+      .btn{position: relative;top: 20px;right:18%;}
+      .btn {margin:3% 39%;}
+      .btn {background: #4be6c0;height: 40px; text-align: center; line-height: 200%; font-size: 120%;margin-top: 3%;border-radius: 15px;}
+      .btn span {color: #fff;}
+      .btn2{position: relative;top: -40px;left:90px;}
+      .btn2 {margin:3% 39%;}
+      .btn2 {background: #4be6c0;height: 40px; text-align: center; line-height: 200%; font-size: 120%;margin-top: 4.2%;border-radius: 15px;}
+      .btn2 span {color: #fff;}
+      .email img {width: 25px; margin-top: 15px; margin-left: 10px; margin-right: 9px;}
+      .passwd img {height: 25px;margin-top: 10px; margin-left: 10px;margin-right: 10px;}
+      .secretword img {height: 25px;margin-top: 10px; margin-left: 10px;margin-right: 10px;}
+
+      .btnhover {background: #dcdcdc;}
+      .submit-hover {background-color: rgba(77, 192, 96, 0.6) !important;}
+      </style>
+  </head>
+  <body>
+    <div class="header" id="topbar">
+          <a href="main2.html" class="left" tapmode onclick="goback()">
+              <img src="../image/abc_ic_ab_back_holo_dark.png" alt="" class="logoleft">
+              <span class="title">用户注册</span>
+          </a>
+          <!-- <div class="right" tapmode="headerhover" onclick="">注册</div> -->
+      </div>
+      <div class="tx" id="sctx">
+        <img id="sctx" src="../image/tx.png" width=150px; height=150px;>
+      </div>
+      <div class="sctx2">请上传您的个人头像</div>
+
+      <div class="divider"></div>
+      <form action="">
+        <div class="item username"><input type="text" placeholder="请输入您的姓名" id="username"></div>
+        <div class="item passwd2"><input type="password" placeholder="请选择您的所属医院" id="passwd2">
+        </div>
+        <div class="item email"><input type="text" placeholder="请选择您的所属科室" id="email"></div>
+        <div class="item pass"><input type="password" placeholder="请输入您的手机号" id="pass">
+        </div>
+        <div class="item password"><input type="text" placeholder="请选择您的密码" id="password"></div>
+        <div class="item pwd"><input type="password" placeholder="请再次输入您的密码" id="pwd">
+        </div>
+
+        <div class="btn" tapmode="submit-hover" id="register"><span type="submit">立即注册</span></div>
+        <div class="btn2" onclick="window.location.href='main2.html'" tapmode="submit-hover"><span type="submit2">返回</span></div>
+        <div class="yyks2" id="xzyyks2">
+          <img id="xzyyks2" src="../image/controllist.png" width=20px; height=18px;>
+        </div>
+        <div class="yyks" id="xzyyks">
+          <img id="xzyyks" src="../image/controllist.png" width=20px; height=18px;>
+        </div>
+      </form>
+  </body>
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script type="text/javascript">
+
+      $("#register").click(function () {
+          var username =document.getElementById('username').value;
+          if(null == username || "" === username) {
+              alert("请输入用户名");
+              return;
+          }
+          var password =document.getElementById('password').value;
+          if(null == password || "" === password) {
+              alert("请输入密码");
+              return;
+          }
+          var pwd =document.getElementById('pwd').value;
+          if(null == pwd || "" === pwd) {
+              alert("请确定密码");
+              return;
+          }
+
+          api.ajax({
+              // url: 'http://192.168.43.90:8080/userRegister',
+              url: 'http://192.168.198.18:8080/userRegister',
+              method: 'post',
+              data: {
+                  values: {
+                      'username': username,
+                      'password': password,
+                      'pwd': pwd
+                  },
+              }
+          },function(ret, err){
+              if (ret) {
+                  alert("注册成功" + JSON.stringify( ret ) );
+                  window.location.href = "main2.html";
+              } else {
+                  alert("注册失败" + JSON.stringify( err ) );
+              }
+          });
+      });
+
+  	function goback () {
+  		api.closeWin({name:'change'})
+  	}
+  	apiready = function() {
+  		$api.fixStatusBar( $api.dom('#topbar') );
+      };
+  </script>
+  </html>

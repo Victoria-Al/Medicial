@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>title</title>
+      <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+      <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <style>
+      html {height: 100%;}
+    	body {height: 100%;background: #9ed7f1; display: -webkit-box;	display: -webkit-flex;	display: flex; -webkit-box-orient: vertical;-webkit-flex-flow: column;flex-flow: column;}
+    	#bottomdivider{ -webkit-box-flex: 1;     -webkit-flex: 1;    flex: 1; }
+
+      input {height: 50px;font-size: 120%;color: #8E8C8C;width: 80%;outline: none;}
+      input::-webkit-input-placeholder {color: #787874;}
+      .divider {height: 30%;}
+      .username,.password {/*margin-top: 3px;*/background: #fff;}
+      .password img, .username img {vertical-align: top;}
+      .item {background-color: #9ed7f1; border-bottom: 1px solid #787874;position: relative;padding-left: 1%;margin: 0 20%;}
+      /*.email, .passwd, .btn {margin:3px 10px;}*/
+      .btn {margin:3% 20%;}
+      .btn {background: #4be6c0;height: 40px; text-align: center; line-height: 190%; font-size: 130%;margin-top: 5%;border-radius: 10px;}
+      .btn span {color: #fff;}
+      .username img {width: 25px; margin-top: 15px; margin-left: 10px; margin-right: 9px;}
+      .password img {height: 25px;margin-top: 10px; margin-left: 10px;margin-right: 10px;}
+      .secretword img {height: 25px;margin-top: 10px; margin-left: 10px;margin-right: 10px;}
+      .sy{
+      position: fixed;
+      left: 34%;
+      top: 9%;
+      }
+      .zhuce{
+      position: fixed;
+      left: 33%;
+      top: 87.9%;
+      font-size: 70%;
+      }
+      .wujide{
+      position: fixed;
+      left: 55%;
+      top: 87.9%;
+      font-size: 70%;
+      }
+      .xieyi{
+      position: fixed;
+      left: 32.5%;
+      top: 93%;
+      font-size: 70%;
+      }
+      .btnhover {background: #dcdcdc;}
+      .submit-hover {background-color: rgba(77, 192, 96, 0.6) !important;}
+      </style>
+  </head>
+  <body>
+    <div class="divider"></div>
+  	<form action="">
+  		<div class="item username"><input type="text" placeholder="请输入您的手机号" id="username"></div>
+  		<div class="item password"><input type="password" placeholder="请输入您的密码" id="password">
+  		</div>
+
+  		<div class="btn" tapmode="submit-hover"  id="login">
+        <span type="submit">登 录
+          </span>
+      </div>
+      <div class="sy" id="dly">
+        <img id="dly" src="../image/dly.png" width=150px; height=150px;>
+      </div>
+  	</form>
+    <a  href="change.html" id="forget" class="wujide">忘记密码</a>
+    <div class="xieyi">登录即代表阅读并同意服务协议</div>
+    <a href="zhuce.html" id="zc" class="zhuce">用户注册</a>
+  </body>
+
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script type="text/javascript">
+    $("#login").click(function () {
+        var username = document.getElementById('username').value;
+        // alert(username.id)
+        if(null == username || "" === username) {
+            alert("请输入用户名");
+            return;
+        }
+        var password = document.getElementById('password').value;
+        if(null == password || "" === password) {
+            alert("请输入密码");
+            return;
+        }
+        api.ajax({
+            url: 'http://192.168.43.90:8080/userLogin',
+            // url: 'http://192.168.198.18:8080/userLogin',
+            method: 'post',
+            data: {
+                values: {
+                    'username': username,
+                    'password': password
+                },
+            }
+        },function(ret, err){
+            if (ret) {
+                alert("登陆成功" + JSON.stringify( ret ) );
+                window.location.href = 'grzx.html';
+            } else {
+                alert("登陆失败" + JSON.stringify( err ) );
+            }
+        });
+
+    })
+
+    var f=document.getElementById('forget');
+    f.onclick=function wanaji () {
+    		api.openWin({name:'change'})
+    	}
+    	apiready = function() {
+    		$api.fixStatusBar( $api.dom('#wangjile') );
+
+        };
+  </script>
+  </html>

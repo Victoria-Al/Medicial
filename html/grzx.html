@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width,height=device-height"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+	<style>
+		html {width: 100%;height: auto;}
+		body {background-color: #fff;height: 100%;}
+
+		/* 条目总体样式 */
+		.item {display: table; height: 60px; width: 100%;border-bottom: 2px solid #e3e1e1;}
+		.item .itemlogo , .item .itemshelf {display: table-cell; vertical-align: middle;}
+
+		.item .itemlogo {width: 12%;}
+		.item .itemlogo img  {margin-left: 30%;margin-top: 10%;width: 45%;}
+		.item .itemshelf .shelfinfo01 {font-size: 125%;color: #787874;}
+
+		/* 条目特例 */
+		.login { height: 70px;border-bottom: 2px solid #787874;}
+		.login .itemlogo {width: 15%;}
+		.login .userlogo img {width: 78%;margin-left:10%;margin-top: -25%}
+		.login .itemshelf .shelfinfo01 {font-size: 120%;color: #38393F;margin-top: -5%;}
+		.login .itemshelf .shelfinfo02 {font-size: 100%;color: #A4A4A5;margin-top: 1%;}
+
+    .item2 {position: fixed;top: 92%;left:66.6%;height: 60px; width: 33.3%;border-top: 2px solid #e3e1e1;}
+		.item2 .itemlogo2 , .item2 .itemshelf2 {display: table-cell; vertical-align: middle;}
+    .item2 .itemlogo2 {position: fixed;width: 60px;}
+		.item2 .itemlogo2 img  {position: fixed;margin-top:1%;left:82%;width: 35px;}
+		.item2 .itemshelf2 .shelfinfo01 {position: fixed;margin-top: 9%;left: 80%;font-size: 90%;color: #787874;}
+
+    .item3 {position: fixed;top: 92%;left:33.3%;height: 60px; width: 33.3%;border-top: 2px solid #e3e1e1;}
+    .item3 .itemlogo3 , .item3 .itemshelf3 {display: table-cell; vertical-align: middle;}
+    .item3 .itemlogo3 {position: fixed;width: 60px;}
+    .item3 .itemlogo3 img  {position: fixed;margin-top:2%;left:49%;width: 25px;}
+    .item3 .itemshelf3 .shelfinfo01 {position: fixed;margin-top: 9%;left: 47%;font-size: 90%;color: #787874;}
+
+    .item4 {position: fixed;top: 92%;left:0%;height: 60px; width: 33.3%;border-top: 2px solid #e3e1e1;}
+    .item4 .itemlogo4 , .item4 .itemshelf4 {display: table-cell; vertical-align: middle;}
+    .item4 .itemlogo4 {position: fixed;width: 60px;}
+    .item4 .itemlogo4 img  {position: fixed;margin-top:2%;left:13%;width: 25px;}
+    .item4 .itemshelf4 .shelfinfo01 {position: fixed;margin-top: 9%;left: 10%;font-size: 90%;color: #787874;}
+		/* 悬停样式 */
+		.itemhover {background-color: #e3e1e1;}
+    .itemhover2 {background-color: #6ec6ce;}
+	</style>
+</head>
+<body>
+
+	<div class="item login" tapmode="itemhover" onclick="openNewWin('login')" id="topbar">
+		<div class="itemlogo userlogo"><img src="../image/tx.png" alt=""></div>
+		<div class="itemshelf">
+			<div class="shelfinfo01">个人中心</div>
+			<div class="shelfinfo02">更多信息</div>
+		</div>
+	</div>
+
+	<div class="item" tapmode="itemhover" onclick="closeSlide()">
+		<div class="itemlogo"><img src="../image/xg.png" alt=""></div>
+		<div class="itemshelf" onclick="window.location.href='xggrzl.html'">
+			<a href="xggrzl.html" class="shelfinfo01">个人资料修改</a>
+
+		</div>
+	</div>
+	<div class="item" tapmode="itemhover" onclick="openNewWin('orderlist')">
+		<div class="itemlogo"><img src="../image/fankui.jpg" alt=""></div>
+		<div onclick="window.location.href='yijian.html'" class="itemshelf">
+			<a href="yijian.html" class="shelfinfo01">意见反馈</a>
+
+		</div>
+	</div>
+	<div class="item" tapmode="itemhover" onclick="openNewWin('giftcenter')">
+		<div class="itemlogo"><img src="../image/gywm.jpg" alt=""></div>
+		<div class="itemshelf" onclick="window.location.href='women.html'">
+			<a href="women.html" class="shelfinfo01">关于我们</a>
+		</div>
+	</div>
+	<div class="item" tapmode="itemhover" onclick="openNewWin('invite')">
+		<div class="itemlogo"><img src="../image/hc.jpg" alt=""></div>
+		<div class="itemshelf">
+			<div class="shelfinfo01">清理缓存</div>
+		</div>
+	</div>
+	<div class="item" tapmode="itemhover" onclick="openNewWin('aboutus')">
+		<div class="itemlogo"><img src="../image/sz.jpg" alt=""></div>
+		<div class="itemshelf">
+			<div class="shelfinfo01">设置</div>
+		</div>
+	</div>
+  <div class="item2" tapmode="itemhover2" onclick="openNewWin('')">
+    <div class="itemlogo2"><img src="../image/grzx1.png" alt=""></div>
+    <div class="itemshelf2">
+      <div class="shelfinfo01">个人中心</div>
+    </div>
+  </div>
+  <div class="item3" tapmode="itemhover2" onclick="openNewWin('')">
+    <div class="itemlogo3"><img src="../image/controllist.png" onclick="window.location.href='txl.html'"alt=""></div>
+    <div class="itemshelf3">
+      <a href="txl.html" class="shelfinfo01">通讯录</a>
+    </div>
+  </div>
+  <div class="item4" tapmode="itemhover2" onclick="openNewWin('')">
+    <div class="itemlogo4"><img src="../image/musiclistcommet.png" onclick="window.location.href='huizhenxiaoxi.html'" alt=""></div>
+    <div class="itemshelf4">
+      <a href="huizhenxiaoxi.html" class="shelfinfo01">会诊消息</a>
+    </div>
+  </div>
+
+
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+	function closeSlide () {
+		api.closeSlidPane();
+	}
+
+    function openNewWin (type) {
+		api.openWin ({
+			name: type,
+			url: './'+type+'.html',
+			rect:{
+				x:0,
+				y:0,
+				w:'auto',
+				h:'auto'
+			},
+			bounces: false,
+			delay:200,
+			animation: {
+				type: 'movein'
+			}
+		});
+    }
+
+    apiready = function(){
+        $api.fixStatusBar( $api.dom('#topbar') );
+    }
+
+</script>
+</html>

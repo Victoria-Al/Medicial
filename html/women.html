@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+       <style>
+        .detail-header{
+            border-bottom: 1px solid #CDCDCD;
+            background-color: #3993cf;
+        }
+        div{position: relative;}
+        .logoleft1{
+          position: absolute;
+          top:26px;
+          left:10px;
+        }
+         .detail-header a{
+            padding: 0px;
+        }
+         .title{
+            color: #FFFFFF;
+            text-align: center;
+            bottom: 10px;
+            font-size: 18px;
+        }
+        .tubiao{
+          position: relative;
+          top:50px;
+          padding: 0px 0px 0px 150px;
+        }
+        .mingzi{
+          position: relative;
+          top:80px;
+          padding: 0px 0px 0px 195px;
+          font-size: 21px;
+        }
+        .banben{
+          position: relative;
+          top:85px;
+          padding: 0px 0px 0px 202px;
+          font-size: 12px;
+          color: grey;
+        }
+        .xian{
+          border-top: 1px solid;
+          color: #e9e7e7;
+          position: relative;
+          top:160px;
+        }
+        .xian2{
+          border-top: 1px solid;
+          color: #e9e7e7;
+          position: relative;
+          top:200px;
+        }
+        .tousu{
+          position: relative;
+          top:180px;
+          padding: 0px 0px 0px 25px;
+          font-size: 20px;
+        }
+        .xian3{
+          border-top: 1px solid;
+          color: #e9e7e7;
+          position: relative;
+          top:260px;
+        }
+        .genxin{
+          position: relative;
+          top:218px;
+          padding: 0px 0px 0px 25px;
+          font-size: 20px;
+        }
+        .new{
+          background-color: red;
+          width:10%;
+          height:20px;
+          position: relative;
+          left:120px;
+          top:195px;
+          border-radius: 10px;
+        }
+        .xian4{
+          border-top: 1px solid;
+          color: #e9e7e7;
+          position: relative;
+          top:275px;
+        }
+        .new2{
+          color: #fff;
+          font-size: 15px;
+          line-height: 20px;
+          text-align: center;
+        }
+        .wenti{
+          position: relative;
+          top:235px;
+          padding: 0px 0px 0px 25px;
+          font-size: 20px;
+        }
+        .xieyi{
+          position: relative;
+          top:400px;
+          text-align: center;
+          font-size: 13px;
+          color: blue;
+        }
+        .xieyi2{
+          position: relative;
+          top:410px;
+          text-align: center;
+          font-size: 13px;
+          color: blue;
+        }
+        .shengming{
+          position: relative;
+          top:425px;
+          text-align: center;
+          font-size: 11px;
+        }
+        .gs{
+          position: relative;
+          top:420px;
+          text-align: center;
+          font-size: 11px;
+          color: blue;
+        }
+    	</style>
+</head>
+<body>
+<header>
+    <div class="header detail-header">
+        <a href="grzx.html" class="back" tapmode="" onclick="closeWin()"></a>
+          <img src="../image/abc_ic_ab_back_holo_dark.png" width=30px; height=30px;alt="" class="logoleft1">
+        <div class="title" id="title">关于我们</div>
+        <a></a>
+    </div>
+   </header>
+    <div class="tubiao">
+      <img id="dly" src="../image/dly.png" width=150px; height=150px;>
+    </div>
+    <div class="mingzi">
+    	蚁巢医疗
+    </div>
+    <div class="banben">
+      Version 1.0.1
+    </div>
+    <div class="xian"></div>
+    <div class="tousu">投诉</div>
+    <div class="xian2"></div>
+    <div class="xian3"></div>
+    <div class="genxin">版本更新</div>
+    <div class="new">
+      <p class="new2">NEW</p>
+    </div>
+    <div class="xian4"></div>
+    <div class="wenti">常见问题</div>
+    <div class="xieyi">《蚁巣服务使用协议》</div>
+    <div class="xieyi2">《个人信息保护协议》</div>
+    <div class="gs">广东蟹堡王公司</div>
+    <div class="shengming">Copyright © 2019-2020 YICHAO</div>
+<script src="../script/api.js"></script>
+<script src="../script/zepto.min.js"></script>
+<script>
+    apiready = function () {
+        $api.fixStatusBar($api.dom( ".header" ));
+    };
+       function closeWin() {
+        api.closeWin({
+
+        })
+    }
+    </script>
+</body>
+</html>
