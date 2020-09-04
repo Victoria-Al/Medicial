@@ -13,20 +13,28 @@
         .aui-grid [class*=aui-col-] {
             padding: 0.75rem 0;
         }
+
+        .aui-bar-tab-item{
+            color: #3C3C3C;
+            text-decoration: none;
+        }
+        .submit-hover{
+            background-color: rgba(77, 192, 96, 0.6) !important;
+        }
     </style>
 </head>
 <body>
     <!-- 底部 -->
     <footer class="aui-bar aui-bar-tab" id="menu_frm">
-        <div class="aui-bar-tab-item" id="view">
-            <i class="aui-iconfont aui-icon-paper"></i>
+        <div class="aui-bar-tab-item" id="view" onclick="change()" tapmode="submit-hover">
+            <i class="aui-iconfont     aui-icon-paper"></i>
             <div class="aui-bar-tab-label">会诊详情</div>
         </div>
-        <div class="aui-bar-tab-item" id="listContact">
+        <div class="aui-bar-tab-item" id="listContact" onclick="change2()" tapmode="submit-hover">
             <i class="aui-iconfont aui-icon-location"></i>
             <div class="aui-bar-tab-label">通讯录</div>
         </div>
-        <div class="aui-bar-tab-item aui-active" id="index">
+        <div class="aui-bar-tab-item aui-active" id="index" onclick="change3()" tapmode="submit-hover">
             <i class="aui-iconfont aui-icon-my"></i>
             <div class="aui-bar-tab-label">个人中心</div>
         </div>
@@ -36,6 +44,22 @@
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+    function change() {
+        document.getElementById('view').style.color = '#0000FF';
+        document.getElementById('listContact').style.color = '#3C3C3C';
+        document.getElementById('index').style.color = '#3C3C3C';
+    }
+    function change2() {
+        document.getElementById('view').style.color = '#3C3C3C';
+        document.getElementById('listContact').style.color = '#0000FF';
+        document.getElementById('index').style.color = '#3C3C3C';
+    }
+    function change3() {
+        document.getElementById('view').style.color = '#3C3C3C';
+        document.getElementById('listContact').style.color = '#3C3C3C';
+        document.getElementById('index').style.color = '#0000FF';
+    }
+
     apiready = function () {
         api.parseTapmode();
         var body = $api.dom('body').offsetHeight;
