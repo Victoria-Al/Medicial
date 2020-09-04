@@ -48,7 +48,7 @@
 	</style>
 </head>
 <body>
-
+<div id="index">
 	<div class="item login" tapmode="itemhover" onclick="openNewWin('login')" id="topbar">
 		<div class="itemlogo userlogo"><img src="../image/tx.png" alt=""></div>
 		<div class="itemshelf">
@@ -89,27 +89,7 @@
 			<div class="shelfinfo01">设置</div>
 		</div>
 	</div>
-  <div class="item2" tapmode="itemhover2" onclick="openNewWin('')">
-    <div class="itemlogo2"><img src="../image/grzx1.png" alt=""></div>
-    <div class="itemshelf2">
-      <div class="shelfinfo01">个人中心</div>
-    </div>
-  </div>
-  <div class="item3" tapmode="itemhover2" onclick="openNewWin('')">
-    <div class="itemlogo3"><img src="../image/controllist.png" onclick="window.location.href='txl.html'"alt=""></div>
-    <div class="itemshelf3">
-      <a href="txl.html" class="shelfinfo01">通讯录</a>
-    </div>
-  </div>
-  <div class="item4" tapmode="itemhover2" onclick="openNewWin('')">
-    <div class="itemlogo4"><img src="../image/musiclistcommet.png" onclick="window.location.href='huizhenxiaoxi.html'" alt=""></div>
-    <div class="itemshelf4">
-      <a href="huizhenxiaoxi.html" class="shelfinfo01">会诊消息</a>
-    </div>
-  </div>
-
-
-
+</div>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
@@ -123,7 +103,7 @@
 			url: './'+type+'.html',
 			rect:{
 				x:0,
-				y:0,
+				y:headerPos.h,
 				w:'auto',
 				h:'auto'
 			},
@@ -135,9 +115,27 @@
 		});
     }
 
-    apiready = function(){
-        $api.fixStatusBar( $api.dom('#topbar') );
-    }
+    // apiready = function(){
+    //     api.parseTapmode();
+    //     var body = $api.dom('body').offsetHeight;
+    //     api.openFrame({
+    //         name: 'menu_frm',
+    //         url: './menu_frm.html',
+    //         rect: {
+    //             x: 0,
+    //             y: 0,
+    //             w: 'auto',
+    //             h: 'auto'
+    //         },
+    //         pageParam: {
+    //             name: 'menu'
+    //         },
+    //         bounces: true,
+    //         vScrollBarEnabled: true,
+    //         hScrollBarEnabled: true
+    //     });
+    //     $api.fixStatusBar( $api.dom('#topbar') );
+    // }
 
 </script>
 </html>

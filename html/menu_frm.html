@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        .text-white {
+            color: #ffffff !important;
+        }
+        .aui-grid [class*=aui-col-] {
+            padding: 0.75rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 底部 -->
+    <footer class="aui-bar aui-bar-tab" id="menu_frm">
+        <div class="aui-bar-tab-item" id="view">
+            <i class="aui-iconfont aui-icon-paper"></i>
+            <div class="aui-bar-tab-label">会诊详情</div>
+        </div>
+        <div class="aui-bar-tab-item" id="listContact">
+            <i class="aui-iconfont aui-icon-location"></i>
+            <div class="aui-bar-tab-label">通讯录</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active" id="index">
+            <i class="aui-iconfont aui-icon-my"></i>
+            <div class="aui-bar-tab-label">个人中心</div>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    apiready = function () {
+        api.parseTapmode();
+        var body = $api.dom('body').offsetHeight;
+        var footer = $api.dom('footer').offsetHeight;
+
+        api.openFrame({
+            name: 'index',
+            url: './grzx.html',
+            rect: {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: body - footer
+            },
+            pageParam: {
+                name: 'menu'
+            },
+            bounces: true,
+            vScrollBarEnabled: true,
+            hScrollBarEnabled: true
+        });
+    }
+
+    $("#index").click(function () {
+        api.parseTapmode();
+        var body = $api.dom('body').offsetHeight;
+        var footer = $api.dom('footer').offsetHeight;
+
+        api.openFrame({
+            name: 'index',
+            url: './grzx.html',
+            rect: {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: body - footer
+            },
+            pageParam: {
+                name: 'menu'
+            },
+            bounces: true,
+            vScrollBarEnabled: true,
+            hScrollBarEnabled: true
+        });
+
+        api.closeFrame({
+            name: 'view'
+        });
+
+        api.closeFrame({
+            name: 'listContact'
+        });
+    })
+
+    $("#listContact").click(function () {
+        api.parseTapmode();
+        var body = $api.dom('body').offsetHeight;
+        var footer = $api.dom('footer').offsetHeight;
+
+        api.openFrame({
+            name: 'txl',
+            url: './txl.html',
+            rect: {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: body - footer
+            },
+            pageParam: {
+                name: 'menu'
+            },
+            bounces: true,
+            vScrollBarEnabled: true,
+            hScrollBarEnabled: true
+        });
+
+        api.closeFrame({
+            name: 'view'
+        });
+
+        api.closeFrame({
+            name: 'index'
+        });
+    })
+
+    $("#view").click(function () {
+        api.parseTapmode();
+        var body = $api.dom('body').offsetHeight;
+        var footer = $api.dom('footer').offsetHeight;
+
+        api.openFrame({
+            name: 'view',
+            url: './huizhenxiaoxi.html',
+            rect: {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: body - footer
+            },
+            pageParam: {
+                name: 'menu'
+            },
+            bounces: true,
+            vScrollBarEnabled: true,
+            hScrollBarEnabled: true
+        });
+
+        api.closeFrame({
+            name: 'txl'
+        });
+
+        api.closeFrame({
+            name: 'index'
+        });
+
+    })
+</script>
+</html>
