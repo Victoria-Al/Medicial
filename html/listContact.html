@@ -35,9 +35,12 @@
         .title{
           color:#fff;
           font-size: 23px;
-          padding: 0px 10px 20px 30px;
+          padding: 0px 20px 20px 30px;
           background-color: grey;
-          height: 45px;
+          height: 50px;
+        }
+        .title .text{
+            font-size: 23px; position: fixed; top: 1.5%;
         }
 
         .items {
@@ -121,9 +124,9 @@
 </head>
 
 <body>
-    <header id="kt" class="title">
-    <div>通讯录</div>
-    </header>
+    <div class="title">
+        <div class="text">通讯录</div>
+    </div>
     <div id="views"></div>
     <div class="indexBox">
         <ul class="items" id="startMark"></ul>

@@ -21,8 +21,8 @@
 		/* 条目特例 */
 		.login { height: 70px;border-bottom: 2px solid #787874;}
 		.login .itemlogo {width: 15%;}
-		.login .userlogo img {width: 78%;margin-left:10%;margin-top: -25%}
-		.login .itemshelf .shelfinfo01 {font-size: 120%;color: #38393F;margin-top: -5%;}
+		.login .userlogo img {width: 78%;margin-left:10%;margin-top: 5%}
+		.login .itemshelf .shelfinfo01 {font-size: 120%;color: #38393F;margin-top: 2%;}
 		.login .itemshelf .shelfinfo02 {font-size: 100%;color: #A4A4A5;margin-top: 1%;}
 
     .item2 {position: fixed;top: 92%;left:66.6%;height: 60px; width: 33.3%;border-top: 2px solid #e3e1e1;}
@@ -93,6 +93,12 @@
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
+    apiready = function () {
+        api.setStatusBarStyle({
+            style : 'dark',
+            color : 'transparent'
+        });
+    }
 	function closeSlide () {
 		api.closeSlidPane();
 	}

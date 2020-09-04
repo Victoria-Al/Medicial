@@ -46,9 +46,9 @@
             url: './grzx.html',
             rect: {
                 x: 0,
-                y: 0,
+                y: 26,
                 w: 'auto',
-                h: body - footer
+                h: 774
             },
             pageParam: {
                 name: 'menu'
@@ -69,9 +69,9 @@
             url: './grzx.html',
             rect: {
                 x: 0,
-                y: 0,
+                y: 24,
                 w: 'auto',
-                h: body - footer
+                h: 774
             },
             pageParam: {
                 name: 'menu'
@@ -96,13 +96,13 @@
         var footer = $api.dom('footer').offsetHeight;
 
         api.openFrame({
-            name: 'txl',
-            url: './main.html',
+            name: 'listContact',
+            url: './listContact.html',
             rect: {
                 x: 0,
-                y: 0,
+                y: 26,
                 w: 'auto',
-                h: 790
+                h: 764
             },
             pageParam: {
                 name: 'menu'
@@ -131,20 +131,19 @@
             url: './huizhenxiaoxi.html',
             rect: {
                 x: 0,
-                y: 0,
+                y: 26,
                 w: 'auto',
-                h: body - footer
+                h: 774
             },
             pageParam: {
                 name: 'menu'
             },
-            bounces: true,
-            vScrollBarEnabled: true,
-            hScrollBarEnabled: true
+            vScrollBarEnabled: false,
+            hScrollBarEnabled: false
         });
 
         api.closeFrame({
-            name: 'txl'
+            name: 'listContact'
         });
 
         api.closeFrame({
