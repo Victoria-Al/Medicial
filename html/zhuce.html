@@ -5,8 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
     <title>title</title>
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
     <style>
@@ -207,7 +205,7 @@
     </style>
 </head>
 
-<body>
+<body >
     <div class="header" id="topbar">
         <a href="main2.html" class="left" tapmode onclick="goback()">
             <img src="../image/abc_ic_ab_back_holo_dark.png" alt="" class="logoleft">
@@ -225,23 +223,21 @@
         <div class="item username"><input type="text" placeholder="请输入您的姓名" id="username"></div>
         <div class="item email">
             <div class="hospital">
-                <select id="hospitals">
+                <select id="hosName">
                     <option>请选择所在医院</option>
                 </select>
             </div>
         </div>
         <div class="item email">
-            <div class="item email">
-                <div class="hospital">
-                    <select id="room">
-                        <option>请选择所在科室</option>
-                    </select>
-                </div>
+            <div class="hospital">
+                <select id="deptName">
+                    <option>请选择所在科室</option>
+                </select>
             </div>
         </div>
-        <div class="item pass"><input type="password" placeholder="请输入您的手机号" id="pass">
+        <div class="item pass"><input type="text" placeholder="请输入您的手机号" id="phoneNumber">
         </div>
-        <div class="item password"><input type="text" placeholder="请选择您的密码" id="password"></div>
+        <div class="item password"><input type="password" placeholder="请选择您的密码" id="password"></div>
         <div class="item pwd"><input type="password" placeholder="请再次输入您的密码" id="pwd">
         </div>
 
@@ -257,6 +253,8 @@
     </form>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
     $("#register").click(function() {
         var username = document.getElementById('username').value;
@@ -274,14 +272,29 @@
             alert("请确定密码");
             return;
         }
+        var hosName = document.getElementById('hosName').value;
+        var deptName = document.getElementById('deptName').value;
+        var phoneNumber = document.getElementById('phoneNumber').value;
+        if("请选择所在医院" === hosName){
+            alert("请选择您所在的医院");
+            return;
+        }
+
+        if("请选择所在科室" === deptName){
+            alert("请选择您所在的科室");
+            return;
+        }
 
         api.ajax({
             // url: 'http://192.168.43.90:8080/userRegister',
-            url: 'http://192.168.198.18:8080/userRegister',
+            url: 'http://192.168.198.129:8080/userRegister',
             method: 'post',
             data: {
                 values: {
                     'username': username,
+                    'hosName': hosName,
+                    'deptName': deptName,
+                    'phoneNumber': phoneNumber,
                     'password': password,
                     'pwd': pwd
                 },
@@ -301,28 +314,30 @@
             name: 'change'
         })
     }
-    apiready = function() {
+
+    window.apiready = function () {
+        var hosName = null;
+        var deptName = null;
+        // 获取医院和科室的list，并显示在可选下拉框中
         api.ajax({
             url: 'http://192.168.198.129:8080/userList',
-            method: 'Get',
-            datatype: 'json'
+            method: 'get',
+            dataType: 'json',
         }, function(ret, err) {
             if (ret) {
-                var option = null;
-                var room = null;
-                for (var i = 0; i < ret.length - 1; i++) {
-                    option += "<option>" + ret[i].hosName + "</option>";
-                    room += "<option>" + ret[i].deptName + "</option>";
+                for (var i = 0; i < ret.length; i++) {
+                    hosName += "<option>" + ret[i].hosName + "</option>";
+                    deptName += "<option>" + ret[i].deptName + "</option>";
                 }
-                $("#hospitals").append(option);
-                $("#room").append(room);
+                $("#hosName").append(hosName);
+                $("#deptName").append(deptName);
             } else {
-                alert(JSON.stringify(err));
+                alert(JSON.stringify(ret) + JSON.stringify(err));
             }
         });
-
+        return null;
         $api.fixStatusBar($api.dom('#topbar'));
-    };
+    }
 </script>
 
 </html>
