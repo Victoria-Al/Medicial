@@ -665,6 +665,8 @@ button, .aui-btn {
 .aui-btn-info {
 	color: #ffffff !important;
 	background-color: #03a9f4 !important;
+	padding:  0px 0px 0px 0px;
+	top:4%
 }
 .aui-btn-info.aui-active, .aui-btn-info:active {
 	color: #fff !important;

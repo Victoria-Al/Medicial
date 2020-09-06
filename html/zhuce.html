@@ -317,20 +317,19 @@
 
     window.apiready = function () {
         var hosName = null;
-        var deptName = null;
         // 获取医院和科室的list，并显示在可选下拉框中
         api.ajax({
-            url: 'http://192.168.1.100:8080/userList',
+            url: 'http://192.168.198.129:8080/hosList',
             method: 'get',
             dataType: 'json',
         }, function(ret, err) {
             if (ret) {
                 for (var i = 0; i < ret.length; i++) {
                     hosName += "<option>" + ret[i].hosName + "</option>";
-                    deptName += "<option>" + ret[i].deptName + "</option>";
+                    // deptName += "<option>" + ret[i].deptName + "</option>";
                 }
                 $("#hosName").append(hosName);
-                $("#deptName").append(deptName);
+                // $("#deptName").append(deptName);
             } else {
                 alert(JSON.stringify(ret) + JSON.stringify(err));
             }
@@ -338,6 +337,26 @@
         return null;
         $api.fixStatusBar($api.dom('#topbar'));
     }
+
+    $("#deptName").click(function functionName() {
+        var deptName = null;
+        api.ajax({
+            url: 'http://192.168.198.129:8080/deptList',
+            method: 'get',
+            dataType: 'json',
+        }, function(ret, err) {
+            if (ret) {
+                for (var i = 0; i < ret.length; i++) {
+                    // hosName += "<option>" + ret[i].hosName + "</option>";
+                    deptName += "<option>" + ret[i].deptName + "</option>";
+                }
+                // $("#hosName").append(hosName);
+                $("#deptName").append(deptName);
+            } else {
+                alert(JSON.stringify(ret) + JSON.stringify(err));
+            }
+        });
+    })
 </script>
 
 </html>

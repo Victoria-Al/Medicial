@@ -120,85 +120,62 @@
         .titles:after {
             border: none !important;
         }
+
+        #select{
+            position: relative;
+            left: 260px;
+            top: 6px;
+        }
+        #check{
+            top: -8px;
+        }
+        #build{
+            position: relative;
+            left: 260px;
+            top: 6px;
+        }
     </style>
 </head>
 
 <body>
     <div class="title">
         <div class="text">通讯录</div>
+        <div class="aui-btn aui-btn-info" id="select">
+            <span class="aui-iconfont aui-icon-edit" id="check"> 选择</span>
+        </div>
+        <div class="aui-btn" id="build">创建</div>
+
     </div>
     <div id="views"></div>
+
     <!-- 右侧标识栏 -->
     <div class="indexBox">
         <ul class="items" id="startMark"></ul>
         <ul id="mainWord"></ul>
         <ul class="items"></ul>
     </div>
+
+        <!-- ($api.byId('checkbox').checked); -->
+
     <!-- 用户列表 -->
     <ul id="mainList">
         
-        <li id="H" class="titles">
-            H
-        </li>
-        <li>
-            <img src="../image/3.png">
-            <span>姓名</span>
-        </li>
-        <li>
-            <img src="../image/3.png">
-            <span>姓名</span>
-        </li>
-        <li>
-            <img src="../image/3.png">
-            <span>姓名</span>
-        </li>
-        <li id="Y" class="titles">
-            Y
-        </li>
-        <li>
-            <img src="../image/3.png">
-            <span>姓名</span>
-        </li>
-        <li>
-            <img src="../image/3.png">
-            <span>姓名</span>
-        </li>
-        <li>
-            <img src="../image/3.png">
-            <span>姓名</span>
-        </li>
-        <li id="Z" class="titles">
-            Z
-        </li>
-        <li>
-            <img src="../image/3.png">
-            <span>姓名</span>
-        </li>
-        <li>
-            <img src="../image/3.png">
-            <span>姓名</span>
-        </li>
-        <li>
-            <img src="../image/3.png">
-            <span>姓名</span>
-        </li>
     </ul>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
 
     var marks = [];
+    var test = "";
 
     apiready = function() {
         api.ajax({
-            url: 'http://192.168.1.100:8080/userList',
+            url: 'http://192.168.198.129:8080/userList',
             method: 'get',
             dataType: 'json'
         },function(ret, err){
             if (ret) {
-
-                alert( JSON.stringify( ret ) );
-
+                // alert( JSON.stringify( ret ) );
                 for (var i = 0; i < ret.length; i++) {
                     var deptNames = "";
                     deptNames = "<li class=titles id=" + ret[i].title + ">" + ret[i].deptName + "</li>";
@@ -206,14 +183,15 @@
                     for (var j = 0; j < ret.length; j++) {
                         if (ret[j].deptName == ret[i].deptName) {
                             var users = "";
-                            users = "<li><img src=" + "../image/3.png><span>" + ret[j].username + "  " + ret[j].hosName + "</span></li>"
+                            users = "<li><img src=" + "../image/3.png><span>" + ret[j].username + "  " + ret[j].hosName + "</span><input class=" +
+                             "aui-checkbox" + " type=" + "checkbox" + " name=" + "demo1" + " checked=" + "true></li>"
                         }
                     }
                     $("#mainList").append(users);
+                    $(".aui-checkbox").hide();
                 }
 
                 //右侧索引数组
-
                 var mainWord = "";
                 $(".titles").each(function() {
                     //循环读取标题字母，添加至数组和界面上的容器
@@ -268,7 +246,33 @@
 
     };
 
+    // $(".aui-checkbox").click(function () {
+    //     if($(this).is("checked")){
+    //         $("[name=demo1]:checkbox").prop("checked", true);
+    //     }else {
+    //         $("[name=demo1]:checkbox").prop("checked", false);
+    //     }
+    // })
 
+    $("#select").click(function () {
+        if ($(".aui-checkbox").is(':hidden')) {
+            $(".aui-checkbox").show();
+        }else {
+            $(".aui-checkbox").hide();
+        }
+    })
+
+    $("#build").click(function () {
+        // 获取被选中的userInfo
+        var userInfos = "";
+        var text="";
+            $(".aui-checkbox").each(function(){
+                if($(this).prop("checked")==true){
+                   text+=$(this).parent().siblings().find('span').text();
+                }
+            })
+        alert(text);
+    })
 
 </script>
 
