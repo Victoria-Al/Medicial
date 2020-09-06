@@ -27,7 +27,7 @@
     <!-- 底部 -->
     <footer class="aui-bar aui-bar-tab" id="menu_frm">
         <div class="aui-bar-tab-item" id="view" onclick="change()" tapmode="submit-hover">
-            <i class="aui-iconfont     aui-icon-paper"></i>
+            <i class="aui-iconfont aui-icon-paper"></i>
             <div class="aui-bar-tab-label">会诊详情</div>
         </div>
         <div class="aui-bar-tab-item" id="listContact" onclick="change2()" tapmode="submit-hover">
@@ -72,7 +72,7 @@
                 x: 0,
                 y: 26,
                 w: 'auto',
-                h: 774
+                h: 762
             },
             pageParam: {
                 name: 'menu'
@@ -95,7 +95,7 @@
                 x: 0,
                 y: 24,
                 w: 'auto',
-                h: 774
+                h: 762
             },
             pageParam: {
                 name: 'menu'
@@ -124,16 +124,16 @@
             url: './listContact.html',
             rect: {
                 x: 0,
-                y: 26,
-                w: 'auto',
+                y: 24,
+                w: 425,
                 h: 764
             },
             pageParam: {
                 name: 'menu'
             },
             bounces: true,
-            vScrollBarEnabled: true,
-            hScrollBarEnabled: true
+            vScrollBarEnabled: false,
+            hScrollBarEnabled: false
         });
 
         api.closeFrame({
@@ -157,7 +157,7 @@
                 x: 0,
                 y: 26,
                 w: 'auto',
-                h: 774
+                h: 762
             },
             pageParam: {
                 name: 'menu'

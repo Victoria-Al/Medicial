@@ -17,10 +17,10 @@
         /*右侧索引大容器*/
 
         .indexBox {
-            width: 30px;
+            width: 40px;
             position: fixed;
             color: blue;
-            height: 100%;
+            height: 92%;
             z-index: 9999;
             right: 0;
             /*设为弹性盒子*/
@@ -72,7 +72,7 @@
         #mainWord li {
             line-height: 17px;
             text-align: center;
-            font-size: 13px;
+            font-size: 12px;
         }
         /*头像*/
 
@@ -113,7 +113,7 @@
         /*分组标记*/
 
         .titles {
-            background: rgb(238, 238, 238);
+            background: rgb(220, 220, 220);
             padding: 5px 0 5px 15px !important;
         }
 
@@ -122,16 +122,16 @@
         }
 
         #select{
-            position: relative;
-            left: 260px;
+            left: 230px;
             top: 6px;
+            background: rgb(176, 196, 222);
         }
         #check{
             top: -8px;
         }
         #build{
             position: relative;
-            left: 260px;
+            left: 230px;
             top: 6px;
         }
     </style>
@@ -157,38 +157,46 @@
 
         <!-- ($api.byId('checkbox').checked); -->
 
+
     <!-- 用户列表 -->
     <ul id="mainList">
-        
+
     </ul>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
 
     var marks = [];
+    var data = [];
     var test = "";
+    var j = 0;
 
     apiready = function() {
         api.ajax({
-            url: 'http://192.168.198.129:8080/userList',
+            url: 'http://192.168.1.100:8080/userList',
             method: 'get',
             dataType: 'json'
         },function(ret, err){
+            data = ret;
             if (ret) {
-                // alert( JSON.stringify( ret ) );
-                for (var i = 0; i < ret.length; i++) {
-                    var deptNames = "";
-                    deptNames = "<li class=titles id=" + ret[i].title + ">" + ret[i].deptName + "</li>";
-                    $("#mainList").append(deptNames);
-                    for (var j = 0; j < ret.length; j++) {
-                        if (ret[j].deptName == ret[i].deptName) {
-                            var users = "";
-                            users = "<li><img src=" + "../image/3.png><span>" + ret[j].username + "  " + ret[j].hosName + "</span><input class=" +
-                             "aui-checkbox" + " type=" + "checkbox" + " name=" + "demo1" + " checked=" + "true></li>"
+                //alert( JSON.stringify( ret ) );
+                for (var l=0; l < ret.length; l++) {
+                    l = j + 1;
+                    if (l < ret.length) {
+                        var deptNames = "";
+                        deptNames = "<div><li class=titles id=" + ret[l].title + ">" + ret[l].deptName + "</li></div>";
+                        $("#mainList").append(deptNames);
+                        var users = "";
+                        for (var k = 0; k < ret.length; k++) {
+                            if (ret[k].deptName == ret[l].deptName) {
+                                users += "<div><li><img src=" + "../image/3.png><span>" + ret[k].username + "</span> "+ "<p>" + ret[k].hosName + " " + " " + ret[k].phoneNumber + "</p></li><input class=" + "aui-checkbox" + " type=" + "checkbox" + " name=" + "demo1></div>"
+                                j = k;
+                            }
                         }
+                        $("#mainList").append(users);
+                        $(".aui-checkbox").hide();
+                        // $(".aui-checkbox").removeAttr("checked");
                     }
-                    $("#mainList").append(users);
-                    $(".aui-checkbox").hide();
                 }
 
                 //右侧索引数组
@@ -246,14 +254,7 @@
 
     };
 
-    // $(".aui-checkbox").click(function () {
-    //     if($(this).is("checked")){
-    //         $("[name=demo1]:checkbox").prop("checked", true);
-    //     }else {
-    //         $("[name=demo1]:checkbox").prop("checked", false);
-    //     }
-    // })
-
+    // show / hide checkBox
     $("#select").click(function () {
         if ($(".aui-checkbox").is(':hidden')) {
             $(".aui-checkbox").show();
@@ -262,16 +263,57 @@
         }
     })
 
+    // $("input[name='applymentid']:checked").length>1这句就可以判断checkbox的选择数量。
+
+    var userInfos = "";
     $("#build").click(function () {
         // 获取被选中的userInfo
-        var userInfos = "";
-        var text="";
+        if ($("input[name='demo1']:checked").length != 0) {
             $(".aui-checkbox").each(function(){
                 if($(this).prop("checked")==true){
-                   text+=$(this).parent().siblings().find('span').text();
+                   userInfos += ($(this).siblings().find('span').text() + " ");
                 }
             })
-        alert(text);
+            // alert(userInfos);
+
+            api.openFrame({
+                name: 'groupName',
+                url: './groupName_frm.html',
+                rect: {
+                    x: 0,
+                    y: 24,
+                    w: 'auto',
+                    h: 180
+                },
+                pageParam: {
+                    name: 'test'
+                },
+                bounces: true,
+                vScrollBarEnabled: true,
+                hScrollBarEnabled: true,
+            });
+        }else {
+            alert("请选择参与群聊的医生");
+        }
+        // alert(userInfos);
+
+        api.ajax({
+            url: 'http://192.168.1.100:8080/saveGroupUsers',
+            method: 'post',
+            data: {
+                values: {
+                    'GroupUsers': userInfos
+                }
+            },
+            dataType: "json"
+        },function(ret, err){
+            if (ret) {
+                alert("传输成功" + JSON.stringify(ret));
+            } else {
+                alert( JSON.stringify( err ) );
+            }
+        });
+
     })
 
 </script>
