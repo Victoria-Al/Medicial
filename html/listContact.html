@@ -173,7 +173,7 @@
 
     apiready = function() {
         api.ajax({
-            url: 'http://192.168.1.100:8080/userList',
+            url: 'http://192.168.198.129:8080/userList',
             method: 'get',
             dataType: 'json'
         },function(ret, err){
@@ -266,15 +266,18 @@
     // $("input[name='applymentid']:checked").length>1这句就可以判断checkbox的选择数量。
 
     var userInfos = "";
+    var length = 0;
     $("#build").click(function () {
+        length = $("input[name='demo1']:checked").length;
         // 获取被选中的userInfo
-        if ($("input[name='demo1']:checked").length != 0) {
+        if (length != 0 && length < 5 ) {
             $(".aui-checkbox").each(function(){
                 if($(this).prop("checked")==true){
                    userInfos += ($(this).siblings().find('span').text() + " ");
                 }
             })
             // alert(userInfos);
+            // alert(length);
 
             api.openFrame({
                 name: 'groupName',
@@ -292,27 +295,29 @@
                 vScrollBarEnabled: true,
                 hScrollBarEnabled: true,
             });
+
+            api.ajax({
+                url: 'http://192.168.198.129:8080/saveGroupUsers',
+                method: 'post',
+                data: {
+                    values: {
+                        'GroupUsers': userInfos
+                    }
+                },
+                dataType: "json"
+            },function(ret, err){
+                if (ret) {
+                    alert("传输成功" + JSON.stringify(ret));
+                } else {
+                    alert( JSON.stringify( err ) );
+                }
+            });
+        }else if(length >= 5){
+            alert("超过限定群聊人数");
         }else {
             alert("请选择参与群聊的医生");
         }
         // alert(userInfos);
-
-        api.ajax({
-            url: 'http://192.168.1.100:8080/saveGroupUsers',
-            method: 'post',
-            data: {
-                values: {
-                    'GroupUsers': userInfos
-                }
-            },
-            dataType: "json"
-        },function(ret, err){
-            if (ret) {
-                alert("传输成功" + JSON.stringify(ret));
-            } else {
-                alert( JSON.stringify( err ) );
-            }
-        });
 
     })
 

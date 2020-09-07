@@ -19,7 +19,7 @@
        font-size: 23px;
        padding: 0px 0px 10px 10px;
        background-color: grey;
-       height: 50px;
+       height: 60px;
      }
      .q2{
     width:30%;
@@ -144,12 +144,6 @@
 
 <div id="view">
   <div class="keming">
-    <div class="xian" onclick="window.location.href='huizhenxiangqing.html'">
-        <img id="img" class="q" src="../image/bs.jpg" width="20">
-      <p class="renming2">张三病人——会诊详情</p><p class="zt">精神科 2号病房 4号床 性别：男 42岁</p></div>
-      <div class="xian2"></div>
-  </div>
-  <div class="keming">
     <div class="xian3">
         <img id="img" class="q" src="../image/musiclistcommet.png" width="20">
       <p class="renming2">章鱼哥医生</p><p class="zt">那就先给李四病人进行保守治疗吧。</p></div>
@@ -157,19 +151,51 @@
           <img id="img" class="q" src="../image/bs.jpg" width="20">
         <p class="renming2">李四病人——会诊详情</p><p class="zt">妇产科 3号病房 5号床 性别：女 30岁</p></div>
   </div>
-  <div class="keming">
-    <div class="xian3">
-        <img id="img" class="q" src="../image/musiclistcommet.png" width="20">
-      <p class="renming2">派大星医生</p><p class="zt">好的，没问题。</p></div>
-      <div class="xian3">
-          <img id="img" class="q" src="../image/bs.jpg" width="20">
-        <p class="renming2">赵四病人——会诊详情</p><p class="zt">肿瘤科 5号病房 1号床 性别：男 52岁</p></div>
-  </div>
 </div>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script src="../script/zepto.min.js"></script>
 <script type="text/javascript">
+
+    apiready = function () {
+        api.ajax({
+            url: 'http://192.168.198.129:8080/GroupList',
+            method: 'Get',
+            dataType: 'json'
+        },function(ret, err){
+            var text = "";
+            if (ret) {
+                for (var i = 0; i < ret.length; i++) {
+                    text += "<div class=" + "keming" + ">";
+                    text += "<div class=" + "xian" + " onclick=" + "window.location.href='huizhenxiangqing.html'" + ">";
+                    text += "<img id=" + "img" + " class=" + "q" + " src=" + "../image/bs.jpg" + " width=" + "20" + ">";
+                    text += "<p class=" + "renming2" + ">" + ret[i].groupName + "</p><p class=" + "zt" + ">" + ret[i].groupId + "</p></div>";
+                    text += "<div class=" + "xian2" + "></div></div>";
+                }
+                $("#view").append(text);
+            } else {
+            }
+        });
+
+        api.ajax({
+            url: 'http://192.168.198.129:8080/GroupList2',
+            method: 'Get',
+            dataType: 'json'
+        },function(ret, err){
+            var text = "";
+            if (ret) {
+                for (var i = 0; i < ret.length; i++) {
+                    text += "<div class=" + "keming" + ">";
+                    text += "<div class=" + "xian" + " onclick=" + "window.location.href='huizhenxiangqing.html'" + ">";
+                    text += "<img id=" + "img" + " class=" + "q" + " src=" + "../image/bs.jpg" + " width=" + "20" + ">";
+                    text += "<p class=" + "renming2" + ">" + ret[i].groupName + "</p><p class=" + "zt" + ">" + ret[i].groupId + "</p></div>";
+                    text += "<div class=" + "xian2" + "></div></div>";
+                }
+                $("#view").append(text);
+            } else {
+            }
+        });
+    }
     /* 创建群聊后的会话显示
     <div class="keming">
       <div class="xian" onclick="window.location.href='huizhenxiangqing.html'">

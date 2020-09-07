@@ -42,7 +42,7 @@
     $("#submit").click(function () {
         var groName = document.getElementById("groupName").value;
         api.ajax({
-            url: 'http://192.168.1.100:8080/saveGroupName',
+            url: 'http://192.168.198.129:8080/chatBuildGroup',
             method: 'post',
             data: {
                 values: {
@@ -52,6 +52,7 @@
         },function(ret, err){
             if (ret) {
                 alert("成功创建" + JSON.stringify( ret ) );
+                window.location.href="./huizhenxiaoxi.html";
             } else {
                 alert( JSON.stringify( err ) );
             }
