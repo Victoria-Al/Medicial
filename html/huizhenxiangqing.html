@@ -15,6 +15,8 @@
             overflow:hidden;
             height:100%;
             width: 100%;
+            display: -webkit-box;	display: -webkit-flex;	display: flex; -webkit-box-orient: vertical;-webkit-flex-flow: column;
+            flex-flow: column;
         }
         #kt {
         }
@@ -202,7 +204,9 @@
         input {height: 50px;font-size: 120%;color: black;width: 80%;outline: none;}
         input::-webkit-input-placeholder {color: #787874;}
         .ccc {
-            padding: 4px 0px 0px 60px;
+            padding: 0px 0px 0px 30px;
+            top: 200px;
+            z-index: 'auto';
         }
 
         #chat {
@@ -217,9 +221,9 @@
 </head>
 
 <body>
-    <header id="kt" style="top: 20px">
+    <header id="kt" style="top: 23px">
         <div class="title">会诊详情
-            <a href="huizhenxiaoxi.html" class="fanhui">
+            <a id="back" class="fanhui">
                 <img id="img1" class="q1" src="../image/abc_ic_ab_back_holo_dark.png">
             </a>
             <a href="bingshi.html" class="bs">
@@ -227,14 +231,14 @@
             </a>
         </div>
     </header>
-    <div style="top: 20px">
-        <div class="yisheng" style="top: 20px">
-            <p class="yisheng2" style="top: 20px">主治医生信息</p>
+    <div style="top: 23px">
+        <div class="yisheng" style="top: 25px">
+            <p class="yisheng2" style="top: 19px">主治医生信息</p>
             <div class="xian"></div>
             <div class="renming">
                 <img id="img3" class="q3" src="../image/tx2.jpg" width="20">
-                <p class="renming2">海绵宝宝 内科 男</p>
-                <p class="guishu">主治医师 蟹堡王医院</p>
+                <p class="renming2" id="doctor"></p>
+                <p class="guishu" id="hospital"></p>
             </div>
         </div>
         <div class="xian2"></div>
@@ -260,7 +264,7 @@
             <p class="hudong2">会诊互动区</p>
         </div>
         <div class="xian5"></div>
-        <div class="faqi">海绵宝宝医生发起了群聊</div>
+
     </div>
     <section class="aui-chat" id="test">
         <div class="aui-chat-header">2016年7月13日</div>
@@ -324,6 +328,60 @@
                 </div>
             </div>
         </div>
+        <div class="aui-chat-item aui-chat-right">
+            <div class="aui-chat-media">
+                <img src="../image/liulangnan.png" />
+            </div>
+            <div class="aui-chat-inner">
+                <div class="aui-chat-name">流浪男</div>
+                <div class="aui-chat-content">
+                    <div class="aui-chat-arrow"></div>
+                    你好！
+                </div>
+                <div class="aui-chat-status">
+                    <i class="aui-iconfont aui-icon-info aui-text-danger"></i>
+                </div>
+            </div>
+        </div>
+        <div class="aui-chat-item aui-chat-right">
+            <div class="aui-chat-media">
+                <img src="../image/liulangnan.png" />
+            </div>
+            <div class="aui-chat-inner">
+                <div class="aui-chat-name">流浪男</div>
+                <div class="aui-chat-content">
+                    <div class="aui-chat-arrow"></div>
+                    你好！
+                </div>
+                <div class="aui-chat-status">
+                    <i class="aui-iconfont aui-icon-info aui-text-danger"></i>
+                </div>
+            </div>
+        </div>
+        <div class="aui-chat-item aui-chat-left">
+            <div class="aui-chat-media">
+                <img src="../image/demo2.png" />
+            </div>
+            <div class="aui-chat-inner">
+                <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
+                <div class="aui-chat-content">
+                    <div class="aui-chat-arrow"></div>
+                    <img src="../image/l1.png" />
+                </div>
+            </div>
+        </div>
+        <div class="aui-chat-item aui-chat-right">
+            <div class="aui-chat-media">
+                <img src="../image/demo2.png" />
+            </div>
+            <div class="aui-chat-inner">
+                <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
+                <div class="aui-chat-content">
+                    <div class="aui-chat-arrow"></div>
+                    <img src="../image/l1.png" />
+                </div>
+            </div>
+        </div>
         <div class="aui-chat-item aui-chat-left">
             <div class="aui-chat-media">
                 <img src="../image/demo2.png" />
@@ -338,9 +396,9 @@
         </div>
 
     </section>
-  <div class="ccc">
-    <input type="text" id="chat" style="width: 310px; height: 35px;" speech x-webkit-speech onwebkitspeechchange=" alert(this.value)" />
-    <input class="aui-btn" style="top: -36px; width: 70px; height: 40px; left: 320px " type="button" value="Send">
+  <div class="ccc" style="top: -36px">
+    <input type="text" id="chat" style="width: 305px; height: 35px; top:20px " />
+    <input class="aui-btn" id="send" style="top: -36px; width: 80px; height: 40px; left: 310px " type="button" value="Send">
   </div>
       <!-- <img src="../image/yuyin.png" width=30px; height=30px;alt="" class="yuyin">
       <img src="../image/biaoqing.png" width=30px; height=30px;alt="" class="biaoqing">
@@ -354,10 +412,72 @@
 <script type="text/javascript" src="../script/aui-slide.js"></script>
 <script type="text/javascript" src="../script/swipe.js"></script>
 <script src="../script/zepto.min.js"></script>
+<script src="http://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
 
 <script type="text/javascript">
+    var gId = "";
+    var uId = "";
+    $("#back").click(function () {
+        api.closeWin({
+            name: 'ad'
+        });
+
+    })
+
     function apiready() {
+        api.ajax({
+            url: 'http://192.168.198.129:8080/getUserInfo',
+            method: 'Get',
+            dataType: 'json'
+        },function(ret, err){
+            if (ret) {
+                uId = ret.userId;
+                // alert(uId);
+            } else {
+                alert( JSON.stringify( err ) );
+            }
+            var webSocket;
+            var Wurl = 'ws://192.168.198.129:8080/chat/' + uId + '';
+            alert(Wurl);
+            if ("WebSocket" in window) {
+                webSocket = new WebSocket(Wurl);
+            } else {
+                // 浏览器不支持 WebSocket
+                alert("您的浏览器不支持 WebSocket!");
+            }
+        });
+
+
+        api.ajax({
+            url: 'http://192.168.198.129:8080/queryUserInfo',
+            method: 'Get',
+            dataType: 'json'
+        },function(ret, err){
+            if (ret) {
+                gId = ret.groupId;
+                // alert(gId);
+                $("#doctor").text(ret.username + " "  + " " + ret.deptName);
+                $("#hospital").text("主治医师：" + " " + ret.hosName)
+                // alert( JSON.stringify( ret ) );
+            } else {
+                // alert( JSON.stringify( err ) );
+            }
+        });
+
     }
+
+
+
+    $("#send").click(function () {
+        var contentText = document.getElementById('chat').value;
+        if (contentText === '') {
+            alert("不能发送空消息");
+        }else {
+            alert(contentText);
+            $("#text").val("");
+        }
+    })
 </script>
 
 </html>
