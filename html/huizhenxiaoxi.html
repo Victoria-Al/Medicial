@@ -1,208 +1,220 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="../css/api.css" />
-    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
-    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+  <link rel="stylesheet" type="text/css" href="../css/common.css"/>
 
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <style>
-     #kt{
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+   #kt{
 
-     }
-     .title{
-       color:#fff;
-       font-size: 23px;
-       padding: 0px 0px 10px 10px;
-       background-color: grey;
-       height: 60px;
-     }
-     .q2{
-    width:30%;
-    height:60%;
-    position: relative;
-    top: 10px;
-    left:165%;
-     }
-     .q3{
-    width:7%;
-    height:5%;
-    position: relative;
-    bottom: 32px;
-    left:90%;
-     }
-     .q{
-    width:8%;
-    height:60%;
-    position: relative;
-    top: 20px;
-    left:10px;
-     }
-     .renming2{
-       position: relative;
-       bottom:25px;
-       padding: 0px 0px 0px 60px;
-          }
-     .zt{
-       position: relative;
-       bottom:20px;
-       padding: 0px 0px 0px 60px;
-       font-size: 13px;
-       color: grey;
-     }
-     .xian{
-       border-top: 1px solid lightgrey;
-       line-height: 20px;
-     }
-     .xian2{
-       border-bottom: 1px solid lightgrey;
-       border-top: 1px solid lightgrey;
-       line-height: 20px;
-     }
-     .xian3{
-       border-bottom: 1px solid lightgrey;
-       line-height: 20px;
-     }
-     .hzxx{
-       background-color: #fff;
-       width:33.3%;
-       height:70px;
-       position: relative;
-       top:210px;
-     }
-     .q4{
-       width: 17%;
-       position: relative;
-       top:13px;
-       left:63px;
-     }
-     .hzxx3{
-       position: relative;
-       left:47px;
-       top:15px;
-     }
-     .hzxx4{
-       background-color: #fff;
-       width:33.3%;
-       height:70px;
-       position: relative;
-       left:160px;
-       top:139.5px;
-     }
-     .q5{
-       width: 17%;
-       position: relative;
-       top:13px;
-       left:63px;
-     }
-     .hzxx6{
-       position: relative;
-       left:53px;
-       top:15px;
-     }
-     .hzxx7{
-       background-color: #fff;
-       width:33.3%;
-       height:70px;
-       position: relative;
-       left:320px;
-       top:70px;
-     }
-     .q6{
-       width: 25%;
-       position: relative;
-       top:4px;
-       left:60px;
-     }
-     .hzxx9{
-       position: relative;
-       padding: 0px 0px 0px 48px;
-       top:1px;
-     }
-     .xian4{
-       border-top: 1px solid lightgrey;
-       position: relative;
-       top:210px;
-     }
+   }
+   .title{
+     color:#fff;
+     font-size: 23px;
+     padding: 0px 0px 10px 10px;
+     background-color: grey;
+     height: 60px;
+   }
+   .q2{
+  width:30%;
+  height:60%;
+  position: relative;
+  top: 10px;
+  left:165%;
+   }
+   .q3{
+  width:7%;
+  height:5%;
+  position: relative;
+  bottom: 32px;
+  left:90%;
+   }
+   .q{
+  width:8%;
+  height:60%;
+  position: relative;
+  top: 20px;
+  left:10px;
+   }
+   .renming2{
+     position: relative;
+     bottom:25px;
+     padding: 0px 0px 0px 60px;
+        }
+   .zt{
+     position: relative;
+     bottom:20px;
+     padding: 0px 0px 0px 60px;
+     font-size: 13px;
+     color: grey;
+   }
+   .xian{
+     border-top: 1px solid lightgrey;
+     line-height: 20px;
+   }
+   .xian2{
+     border-bottom: 1px solid lightgrey;
+     border-top: 1px solid lightgrey;
+     line-height: 20px;
+   }
+   .xian3{
+     border-bottom: 1px solid lightgrey;
+     line-height: 20px;
+   }
+   .hzxx{
+     background-color: #fff;
+     width:33.3%;
+     height:70px;
+     position: relative;
+     top:210px;
+   }
+   .q4{
+     width: 17%;
+     position: relative;
+     top:13px;
+     left:63px;
+   }
+   .hzxx3{
+     position: relative;
+     left:47px;
+     top:15px;
+   }
+   .hzxx4{
+     background-color: #fff;
+     width:33.3%;
+     height:70px;
+     position: relative;
+     left:160px;
+     top:139.5px;
+   }
+   .q5{
+     width: 17%;
+     position: relative;
+     top:13px;
+     left:63px;
+   }
+   .hzxx6{
+     position: relative;
+     left:53px;
+     top:15px;
+   }
+   .hzxx7{
+     background-color: #fff;
+     width:33.3%;
+     height:70px;
+     position: relative;
+     left:320px;
+     top:70px;
+   }
+   .q6{
+     width: 25%;
+     position: relative;
+     top:4px;
+     left:60px;
+   }
+   .hzxx9{
+     position: relative;
+     padding: 0px 0px 0px 48px;
+     top:1px;
+   }
+   .xian4{
+     border-top: 1px solid lightgrey;
+     position: relative;
+     top:210px;
+   }
 </style>
 </head>
 <body>
-  <header id="kt">
-  <div class="title">会诊消息
-    <a class="sousuo">
-      <img id="img2" class="q2" src="../image/fdj.png">
-    </a>
-    <a class="sousuo2">
-      <img id="img2" onclick="window.location.href='fqyq.html'"  class="q3" src="../image/tj.png">
-    </a>
-  </div>
-  </header>
+<header id="kt">
+<div class="title">会诊消息
+  <a class="sousuo">
+    <img id="img2" class="q2" src="../image/fdj.png">
+  </a>
+  <a class="sousuo2">
+    <img id="img2" onclick="window.location.href='fqyq.html'"  class="q3" src="../image/tj.png">
+  </a>
+</div>
+</header>
 
 <div id="view">
-  <div class="keming">
-    <div class="xian3">
-        <img id="img" class="q" src="../image/musiclistcommet.png" width="20">
-      <p class="renming2">章鱼哥医生</p><p class="zt">那就先给李四病人进行保守治疗吧。</p></div>
-      <div class="xian3">
-          <img id="img" class="q" src="../image/bs.jpg" width="20">
-        <p class="renming2">李四病人——会诊详情</p><p class="zt">妇产科 3号病房 5号床 性别：女 30岁</p></div>
-  </div>
+<div class="keming">
+  <div class="xian3" onclick="window.location.href='huizhenxiangqing.html'">
+      <img id="img" class="q" src="../image/musiclistcommet.png" width="20">
+    <p class="renming2">章鱼哥医生</p><p class="zt">那就先给李四病人进行保守治疗吧。</p></div>
+    <div class="xian3" id="ad">
+        <img id="img" class="q" src="../image/bs.jpg" width="20">
+      <p class="renming2">李四病人——会诊详情</p><p class="zt">妇产科 3号病房 5号床 性别：女 30岁</p></div>
+</div>
 </div>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script src="../script/zepto.min.js"></script>
 <script type="text/javascript">
 
-    apiready = function () {
-        api.ajax({
-            url: 'http://192.168.198.129:8080/GroupList',
-            method: 'Get',
-            dataType: 'json'
-        },function(ret, err){
-            var text = "";
-            if (ret) {
-                for (var i = 0; i < ret.length; i++) {
-                    text += "<div class=" + "keming" + ">";
-                    text += "<div class=" + "xian" + " onclick=" + "window.location.href='huizhenxiangqing.html'" + ">";
-                    text += "<img id=" + "img" + " class=" + "q" + " src=" + "../image/bs.jpg" + " width=" + "20" + ">";
-                    text += "<p class=" + "renming2" + ">" + ret[i].groupName + "</p><p class=" + "zt" + ">" + ret[i].groupId + "</p></div>";
-                    text += "<div class=" + "xian2" + "></div></div>";
-                }
-                $("#view").append(text);
-            } else {
+    $("#ad").click(function () {
+        api.openWin({
+            name: 'ad',
+            url: './huizhenxiangqing.html',
+            pageParam: {
+                name: 'test'
             }
         });
 
-        api.ajax({
-            url: 'http://192.168.198.129:8080/GroupList2',
-            method: 'Get',
-            dataType: 'json'
-        },function(ret, err){
-            var text = "";
-            if (ret) {
-                for (var i = 0; i < ret.length; i++) {
-                    text += "<div class=" + "keming" + ">";
-                    text += "<div class=" + "xian" + " onclick=" + "window.location.href='huizhenxiangqing.html'" + ">";
-                    text += "<img id=" + "img" + " class=" + "q" + " src=" + "../image/bs.jpg" + " width=" + "20" + ">";
-                    text += "<p class=" + "renming2" + ">" + ret[i].groupName + "</p><p class=" + "zt" + ">" + ret[i].groupId + "</p></div>";
-                    text += "<div class=" + "xian2" + "></div></div>";
-                }
-                $("#view").append(text);
-            } else {
-            }
-        });
-    }
-    /* 创建群聊后的会话显示
-    <div class="keming">
-      <div class="xian" onclick="window.location.href='huizhenxiangqing.html'">
-          <img id="img" class="q" src="../image/bs.jpg" width="20">
-        <p class="renming2">张三病人——会诊详情</p><p class="zt">精神科 2号病房 4号床 性别：男 42岁</p></div>
-        <div class="xian2"></div>
-    </div>
-    */
+    })
+
+  apiready = function () {
+      api.ajax({
+          url: 'http://192.168.198.129:8080/GroupList',
+          method: 'Get',
+          dataType: 'json'
+      },function(ret, err){
+          var text = "";
+          if (ret) {
+              for (var i = 0; i < ret.length; i++) {
+                  text += "<div class=" + "keming" + ">";
+                  text += "<div class=" + "xian" + " onclick=" + "window.location.href='huizhenxiangqing.html'" + ">";
+                  text += "<img id=" + "img" + " class=" + "q" + " src=" + "../image/bs.jpg" + " width=" + "20" + ">";
+                  text += "<p class=" + "renming2" + ">" + ret[i].groupName + "</p><p class=" + "zt" + ">" + ret[i].groupId + "</p></div>";
+                  text += "<div class=" + "xian2" + "></div></div>";
+              }
+              $("#view").append(text);
+          } else {
+          }
+      });
+
+      api.ajax({
+          url: 'http://192.168.198.129:8080/GroupList2',
+          method: 'Get',
+          dataType: 'json'
+      },function(ret, err){
+          var text = "";
+          if (ret) {
+              for (var i = 0; i < ret.length; i++) {
+                  text += "<div class=" + "keming" + ">";
+                  text += "<div class=" + "xian" + " onclick=" + "window.location.href='huizhenxiangqing.html'" + ">";
+                  text += "<img id=" + "img" + " class=" + "q" + " src=" + "../image/bs.jpg" + " width=" + "20" + ">";
+                  text += "<p class=" + "renming2" + ">" + ret[i].groupName + "</p><p class=" + "zt" + ">" + ret[i].groupId + "</p></div>";
+                  text += "<div class=" + "xian2" + "></div></div>";
+              }
+              $("#view").append(text);
+          } else {
+          }
+      });
+  }
+  /* 创建群聊后的会话显示
+  <div class="keming">
+    <div class="xian" onclick="window.location.href='huizhenxiangqing.html'">
+        <img id="img" class="q" src="../image/bs.jpg" width="20">
+      <p class="renming2">张三病人——会诊详情</p><p class="zt">精神科 2号病房 4号床 性别：男 42岁</p></div>
+      <div class="xian2"></div>
+  </div>
+  */
 </script>
 </html>

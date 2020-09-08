@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +11,13 @@
     <link rel="stylesheet" type="text/css" href="../css/aui.css" />
     <link rel="stylesheet" type="text/css" href="../css/aui-win.css" />
     <style>
-        #kt {}
+        html,body{
+            overflow:hidden;
+            height:100%;
+            width: 100%;
+        }
+        #kt {
+        }
 
         .title {
             color: #fff;
@@ -18,6 +25,7 @@
             padding: 10px 0px 20px 35px;
             background-color: grey;
             height: 55px;
+            top: 20px;
         }
 
         .q1 {
@@ -188,24 +196,28 @@
         .waikuang{
           background-color: #f0ebeb;
           position: relative;
-          margin-top:473px;
+          margin-top: 473px;
 
         }
         input {height: 50px;font-size: 120%;color: black;width: 80%;outline: none;}
         input::-webkit-input-placeholder {color: #787874;}
         .ccc {
-            padding: 8px 0px 0px 50px;
-
+            padding: 4px 0px 0px 60px;
         }
 
         #chat {
             background-color: #fff;
         }
+        #test{
+            position: relative;
+            overflow-y: scroll;/*显示y轴滚动条*/
+            overflow-x: hidden;/*隐藏x轴滚动条*/
+        }
     </style>
 </head>
 
 <body>
-    <header id="kt">
+    <header id="kt" style="top: 20px">
         <div class="title">会诊详情
             <a href="huizhenxiaoxi.html" class="fanhui">
                 <img id="img1" class="q1" src="../image/abc_ic_ab_back_holo_dark.png">
@@ -215,9 +227,9 @@
             </a>
         </div>
     </header>
-    <form class="a" action="" method="post">
-        <div class="yisheng">
-            <p class="yisheng2">主治医生信息</p>
+    <div style="top: 20px">
+        <div class="yisheng" style="top: 20px">
+            <p class="yisheng2" style="top: 20px">主治医生信息</p>
             <div class="xian"></div>
             <div class="renming">
                 <img id="img3" class="q3" src="../image/tx2.jpg" width="20">
@@ -249,11 +261,8 @@
         </div>
         <div class="xian5"></div>
         <div class="faqi">海绵宝宝医生发起了群聊</div>
-
-    </form>
-
-<div>
-    <section class="aui-chat">
+    </div>
+    <section class="aui-chat" id="test">
         <div class="aui-chat-header">2016年7月13日</div>
         <div class="aui-chat-item aui-chat-left">
             <div class="aui-chat-media">
@@ -327,14 +336,12 @@
                 </div>
             </div>
         </div>
+
     </section>
-</div>
-<!--
-    <div class="waikuang">
-    -->
-      <div class="ccc">
-        <input type="text" id="chat" style="width: 330px; height: 35px;" speech x-webkit-speech onwebkitspeechchange=" alert(this.value)" />
-      </div>
+  <div class="ccc">
+    <input type="text" id="chat" style="width: 310px; height: 35px;" speech x-webkit-speech onwebkitspeechchange=" alert(this.value)" />
+    <input class="aui-btn" style="top: -36px; width: 70px; height: 40px; left: 320px " type="button" value="Send">
+  </div>
       <!-- <img src="../image/yuyin.png" width=30px; height=30px;alt="" class="yuyin">
       <img src="../image/biaoqing.png" width=30px; height=30px;alt="" class="biaoqing">
       <img src="../image/fasong.png" width=30px; height=30px;alt="" class="fasong">
