@@ -165,12 +165,10 @@
 
     function turnChat(id) {
         api.openWin({
-            name: 'ad',
-            url: './huizhenxiangqing.html',
-            pageParam: {
-                name: 'test'
-            }
+            name: 'hzxq',
+            url: './huizhenxiangqing.html'
         });
+
         // alert(id);
         api.ajax({
             url: 'http://192.168.198.129:8080/saveQueryId',
@@ -183,23 +181,13 @@
             dataType: 'json'
         },function(ret, err){
             if (ret) {
+                // alert(id);
+                // alert(JSON.stringify(ret));
             } else {
                 alert( JSON.stringify( err ) );
             }
         });
-
     }
-
-    $("#ad").click(function () {
-        api.openWin({
-            name: 'ad',
-            url: './huizhenxiangqing.html',
-            pageParam: {
-                name: 'test'
-            }
-        });
-
-    })
 
   apiready = function () {
       api.ajax({

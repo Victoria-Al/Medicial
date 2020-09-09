@@ -89,9 +89,10 @@
             return;
         }
         api.ajax({
-            // url: 'http://192.168.43.90:8080/userLogin',
-            // url: 'http://192.168.198.18:8080/userLogin',
             url: 'http://192.168.198.129:8080/userLogin',
+            // url: 'http://192.168.198.18:8080/userLogin',
+            // url: 'http://192.168.198.129:8080/userLogin',
+            // url: 'http://192.168.1.100:8080/userLogin',
             method: 'post',
             data: {
                 values: {
@@ -101,7 +102,7 @@
             }
         },function(ret, err){
             if (ret) {
-                alert("登陆成功" + JSON.stringify( ret ) );
+                // alert("登陆成功" + JSON.stringify( ret ) );
                 window.location.href = 'menu_frm.html';
             } else {
                 alert("登陆失败" + JSON.stringify( err ) );

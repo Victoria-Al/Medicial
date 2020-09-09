@@ -446,7 +446,7 @@ img.aui-img-round {
 	word-break: break-all;
 }
 .aui-content-padded {
-  	margin: 0.75rem;
+  	margin: 0.85rem;
   	position: relative;
   	word-break: break-all;
   	-webkit-overflow-scrolling: touch;
@@ -2337,10 +2337,80 @@ input[type="search"]::-webkit-search-cancel-button {
     background-color: #03a9f4 !important;
     color: #ffffff;
 }
+
+/*聊天 会话*/
+.aui-chat-receiver{
+    clear:both;
+}
+.aui-chat-receiver .aui-chat-receiver-avatar{
+    float: left;
+}
+.aui-chat-receiver .aui-chat-receiver-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.aui-chat-receiver .aui-chat-receiver-cont{
+    background: #ffffff;
+    float: left;
+    margin: 25px 20px 10px 15px;
+    padding: 10px;
+    border-radius:7px;
+    max-width: 60%;
+    position: relative;
+    min-height: 20px;
+}
+.aui-chat-sender{
+    clear:both;
+}
+
+.aui-chat-sender .aui-chat-sender-avatar{
+    float: right;
+}
+.aui-chat-sender .aui-chat-sender-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.aui-chat-sender .aui-chat-sender-cont{
+    float:right;
+    background: #15b5e9;
+    margin: 0 10px 10px 20px;
+    padding: 10px;
+    border-radius:7px;
+    color: #ffffff;
+    max-width: 60%;
+    position: relative;
+    min-height: 20px;
+}
+.aui-chat-left-triangle{
+    height:0px;
+    width:0px;
+    border-width:8px;
+    border-style:solid;
+    border-color:transparent #ffffff transparent transparent;
+    position: absolute;
+    left:-16px;
+    top:6px;
+}
+.aui-chat-right-triangle{
+    height:0px;
+    width:0px;
+    border-width:8px;
+    border-style:solid;
+    border-color:transparent transparent transparent #15b5e9;
+    position: absolute;
+    right:-16px;
+    top:6px;
+}
+.aui-chat-sender .aui-chat-sender-cont span,
+.aui-chat-receiver .aui-chat-receiver-cont span{
+    word-break:break-all;
+}
 /*聊天气泡*/
 .aui-chat {
     width: 100%;
-    height: 70%;
+    height: 40%;
     padding: 0.5rem;
 }
 .aui-chat .aui-chat-item {
