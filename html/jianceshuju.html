@@ -1,250 +1,354 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
     <style>
-     #kt{
+        html,
+        body {
+            overflow: hidden;
+            height: auto;
+            width: auto;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+            flex-flow: column;
+        }
 
-     }
-     .title{
-       color:#fff;
-       font-size: 23px;
-       padding: 5px 0px 10px 35px;
-       background-color: grey;
-       height: 30px;
-     }
-     .q1{
-       width: 80%;
-       position: relative;
-       right: 175px;
-       top:5px;
-     }
-     .q2{
-       width: 8%;
-       position: relative;
-       left: 380px;
-       bottom:30px;
-     }
-     .yisheng{
-              background-color: #fff;
-              height: 30px;
-             }
-    .yisheng2{
-      font-size: 18px;
-      position: relative;
-      padding: 0px 0px 0px 20px;
-      top:7px;
-    }
-    .xian{
-      border-top: 1px solid lightgrey;
-      position: relative;
-      top:13px;
-    }
-    .renming{
-      width: 100%;
-      height:60px;
-    }
-    .q3{
-   width:8%;
-   height:60%;
-   position: relative;
-   top: 30px;
-   left:30px;
-    }
-    .renming2{
-      position: relative;
-      bottom:15px;
-      padding: 0px 0px 0px 80px;
-    }
-    .guishu{
-      position: relative;
-      bottom:5px;
-      padding: 0px 0px 0px 80px;
-      font-size: 13px;
-      color: grey;
-    }
-    .xian2{
-      border-top: 7px solid lightgrey;
-      position: relative;
-      top:70px;
-    }
-    .bingren2{
-      font-size: 18px;
-      position: relative;
-      padding: 0px 0px 0px 20px;
-      top:80px;
-    }
-    .xian3{
-      border-top: 1px solid lightgrey;
-      position: relative;
-      top:85px;
-    }
-    .renming4{
-      position: relative;
-      top:95px;
-      padding: 0px 0px 0px 20px;
-    }
-    .xinxi{
-      position: relative;
-      top:78px;
-      padding: 0px 0px 0px 60px;
-      font-size: 13px;
-      color: grey;
-    }
-    .zhaiyao{
-      position: relative;
-      top:95px;
-      padding: 0px 0px 0px 20px;
-    }
-    .shuju{
-      position: relative;
-      bottom:390px;
-      left:275px;
-      font-size: 15px;
-    }
-    .fujian2{
-      position: relative;
-      bottom:895px;
-      left:398px;
-      font-size: 15px;
-    }
-    .tou1{
-      position: relative;
-      padding: 0px 0px 0px 143px;
-      top:100px;
-    }
-    .tou2{
-      position: relative;
-      padding: 0px 0px 0px 311px;
-      top:63px;
-    }
-    .tou3{
-      position: relative;
-      padding: 0px 0px 0px 143px;
-      top:60px;
-    }
-    .tou4{
-      position: relative;
-      padding: 0px 0px 0px 311px;
-      top:24px;
-    }
-    .wei1{
-      position: relative;
-      padding: 0px 0px 0px 191px;
-      top:80px;
-      color: #5de926;
-    }
-    .wei2{
-      position: relative;
-      padding: 0px 0px 0px 361px;
-      top:44px;
-      color: #5de926;
-    }
-    .wei3{
-      position: relative;
-      padding: 0px 0px 0px 191px;
-      top:41px;
-      color: #f15959;
-    }
-    .wei4{
-      position: relative;
-      padding: 0px 0px 0px 361px;
-      top:5px;
-      color: #f15959;
-    }
-    .xian4{
-      border-top: 7px solid lightgrey;
-      position: relative;
-      top:20px;
-    }
-    .tuxiang2{
-      font-size: 18px;
-      position: relative;
-      padding: 0px 0px 0px 20px;
-      top:27px;
-    }
-    .xian5{
-      border-top: 7px solid lightgrey;
-      position: relative;
-      top:50px;
-    }
-    .fenxi2{
-      font-size: 18px;
-      position: relative;
-      padding: 0px 0px 0px 20px;
-      top:60px;
-    }
-    .yjff{
-      background-color: #dbeeec;
-      height: 140px;
-      width:80%;
-      position: relative;
-      left:50px;
-      top:70px;
-    }
-    .fenxi3{
-      font-size: 18px;
-      position: relative;
-      left:20px;
-      top:20px;
-    }
-    .xdt4{
-      width: 70%;
-      position: relative;
-      top:40px;
-      left: 70px;
-    }
-</style>
+        #kt {}
+
+        .title {
+            color: #fff;
+            font-size: 23px;
+            padding: 5px 0px 10px 35px;
+            background-color: grey;
+            height: 30px;
+        }
+
+        .q1 {
+            width: 80%;
+            position: relative;
+            right: 175px;
+            top: 5px;
+        }
+
+        .q2 {
+            width: 8%;
+            position: relative;
+            left: 380px;
+            bottom: 30px;
+        }
+
+        .yisheng {
+            background-color: #fff;
+            height: 30px;
+        }
+
+        .yisheng2 {
+            font-size: 18px;
+            position: relative;
+            padding: 0px 0px 0px 20px;
+            top: 7px;
+        }
+
+        .xian {
+            border-top: 1px solid lightgrey;
+            position: relative;
+            top: 20px;
+        }
+
+        .renming {
+            width: 100%;
+            height: 60px;
+        }
+
+        .q3 {
+            width: 8%;
+            height: 60%;
+            position: relative;
+            top: 30px;
+            left: 30px;
+        }
+
+        .renming2 {
+            position: relative;
+            bottom: 15px;
+            padding: 0px 0px 0px 80px;
+        }
+
+        .guishu {
+            position: relative;
+            bottom: 5px;
+            padding: 0px 0px 0px 80px;
+            font-size: 13px;
+            color: grey;
+        }
+
+        .xian2 {
+            border-top: 7px solid lightgrey;
+            position: relative;
+            top: 80px;
+        }
+
+        .bingren2 {
+            font-size: 18px;
+            position: relative;
+            padding: 0px 0px 0px 20px;
+            top: 80px;
+        }
+
+        .xian3 {
+            border-top: 1px solid lightgrey;
+            position: relative;
+            top: 85px;
+        }
+
+        .renming4 {
+            position: relative;
+            top: 95px;
+            padding: 0px 0px 0px 20px;
+        }
+
+        .xinxi {
+            position: relative;
+            top: 78px;
+            padding: 0px 0px 0px 70px;
+            font-size: 13px;
+            color: grey;
+        }
+
+        .zhaiyao {
+            position: relative;
+            top: 85px;
+            padding: 0px 0px 0px 20px;
+        }
+
+        .shuju {
+            position: relative;
+            bottom: 390px;
+            left: 275px;
+            font-size: 15px;
+        }
+
+        .fujian2 {
+            position: relative;
+            bottom: 895px;
+            left: 398px;
+            font-size: 15px;
+        }
+
+        .tou1 {
+            position: relative;
+            padding: 0px 0px 0px 83px;
+            top: 100px;
+        }
+
+        .tou2 {
+            position: relative;
+            padding: 0px 0px 0px 260px;
+            top: 63px;
+        }
+
+        .tou3 {
+            position: relative;
+            padding: 0px 0px 0px 83px;
+            top: 60px;
+        }
+
+        .tou4 {
+            position: relative;
+            padding: 0px 0px 0px 260px;
+            top: 21px;
+        }
+
+        .wei1 {
+            position: relative;
+            padding: 0px 0px 0px 131px;
+            top: 80px;
+            color: #5de926;
+        }
+
+        .wei2 {
+            position: relative;
+            padding: 0px 0px 0px 311px;
+            top: 40px;
+            color: #5de926;
+        }
+
+        .wei3 {
+            position: relative;
+            padding: 0px 0px 0px 141px;
+            top: 41px;
+            color: #f15959;
+        }
+
+        .wei4 {
+            position: relative;
+            padding: 0px 0px 0px 311px;
+            top: -2px;
+            color: #f15959;
+        }
+
+        .xian4 {
+            border-top: 7px solid lightgrey;
+            position: relative;
+            top: 20px;
+        }
+
+        .tuxiang2 {
+            font-size: 18px;
+            position: relative;
+            padding: 0px 0px 0px 20px;
+            top: 27px;
+        }
+
+        .xian5 {
+            border-top: 7px solid lightgrey;
+            position: relative;
+            top: 50px;
+        }
+
+        .fenxi2 {
+            font-size: 19px;
+            position: relative;
+            padding: 0px 0px 0px 20px;
+            top: 60px;
+        }
+
+        .yjff {
+            background-color: #dbeeec;
+            height: 140px;
+            width: 80%;
+            position: relative;
+            left: 50px;
+            top: 70px;
+        }
+
+        .fenxi3 {
+            font-size: 18px;
+            position: relative;
+            left: 20px;
+            top: 20px;
+        }
+
+        .xdt4 {
+            width: 70%;
+            position: relative;
+            top: 40px;
+            left: 70px;
+        }
+    </style>
 </head>
+
 <body>
-  <header id="kt">
-  <div class="title">实时监测数据
-    <a href="huizhenxiangqing.html" class="fanhui">
-      <img id="img1" class="q1" src="../image/abc_ic_ab_back_holo_dark.png">
-    </a>
-  </div>
-  </header>
-<form class="a" action="index.html" method="post">
-<div class="yisheng">
-  <p class="yisheng2">主治医生信息</p>
-  <div class="xian"></div>
-  <div class="renming">
-      <img id="img3" class="q3" src="../image/tx2.jpg" width="20">
-    <p class="renming2">海绵宝宝 内科 男</p><p class="guishu">主治医师 蟹堡王医院</p>
-  </div>
-</div>
-<div class="xian2"></div>
-<div class="bingren">
-  <p class="bingren2">病人信息</p>
-  <div class="xian3"></div>
-  <div class="renming3">
-    <p class="renming4">张三</p><p class="xinxi">男 59岁 12号床</p><p class="zhaiyao">各项监测数据：</p>
-    <p class="tou1">血压：</p><p class="wei1">120/80mmHg</p><p class="tou2">心率：</p>
-    <p class="wei2">80次/min</p><p class="tou3">体温：</p><p class="wei3">40°C</p>
-    <p class="tou4">呼吸：</p><p class="wei4">20次/min</p>
-  </div>
-</div>
-  <div class="xian4"></div>
-  <div class="tuxiang">
-    <p class="tuxiang2">图像区</p>
-    <p class="xdt2">
-      <img id="xdt3" class="xdt4" src="../image/xdt.jpg">
-    </a>
-    <div class="xian5"></div>
+    <header id="kt" style="top: 23px">
+        <div class="title" style="top: 23px">实时监测数据
+            <a id="back" class="fanhui">
+                <img id="img1" class="q1" src="../image/abc_ic_ab_back_holo_dark.png">
+            </a>
+        </div>
+    </header>
+    <div>
+        <div class="yisheng" style="top: 23px">
+            <p class="yisheng2" style="top: 23px">主治医生信息</p>
+            <div class="xian"></div>
+            <div class="renming">
+                <img id="img3" class="q3" src="../image/tx2.jpg" width="20">
+                <p class="renming2" id="doctor"></p>
+                <p class="guishu" id="hospital"></p>
+            </div>
+        </div>
+        <div class="xian2"></div>
+        <div class="bingren">
+            <p class="bingren2">病人信息</p>
+            <div class="xian3"></div>
+            <div class="renming3">
+                <p class="renming4" id="patient"></p>
+                <p class="xinxi" id="info"></p>
+                <p class="zhaiyao">各项监测数据：</p>
+                <p class="tou1">血压：</p>
+                <p class="wei1" id="bp"></p>
+                <p class="tou2">心率：</p>
+                <p class="wei2" id="ecc"></p>
+                <p class="tou3">体温：</p>
+                <p class="wei3" id="temp"></p>
+                <p class="tou4">呼吸：</p>
+                <p class="wei4" id="breath"></p>
+            </div>
+        </div>
+        <div class="xian4"></div>
+        <div class="tuxiang">
+            <p class="tuxiang2">图像区</p>
+            <p class="xdt2">
+                <img id="xdt3" class="xdt4" src="../image/xdt.jpg">
+                </a>
+                <div class="xian5"></div>
+        </div>
+        <div class="fenxi">
+            <p class="fenxi2">实时数据监测分析</p>
+            <div class="yjff">
+                <p class="fenxi3">病人体温与呼吸体征异常</p>
+            </div>
+        </div>
     </div>
-    <div class="fenxi">
-      <p class="fenxi2">实时数据监测分析</p>
-      <div class="yjff">
-        <p class="fenxi3">病人体温与呼吸体征异常</p>
-      </div>
-      </div>
-</div>
-</form>
 </body>
+<script type="text/javascript" src="../script/url.js"></script>
 <script type="text/javascript" src="../script/api.js"></script>
 <script src="../script/zepto.min.js"></script>
+
+<script type="text/javascript">
+    var pId;
+    $("#back").click(function() {
+        api.closeWin({
+            name: 'jiance'
+        });
+    })
+
+    apiready = function() {
+        api.ajax({
+            url: wurl + 'getPatient',
+            method: 'Get',
+            dataType: 'json'
+        }, function(ret, err) {
+            if (ret) {
+                pId = "";
+                pId = ret.id;
+                // alert( pId );
+                getAttending();
+                $("#patient").text(ret.pUserName);
+                $("#info").text(" " + ret.pSex + " " + ret.pAge + " " + ret.pBed);
+                $("#bp").text(ret.pBP);
+                $("#ecc").text(ret.pEcc);
+                $("#temp").text(ret.pTemp);
+                $("#breath").text(ret.pBreath);
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+    }
+
+    function getAttending() {
+        api.ajax({
+            url: wurl + 'getAttending',
+            method: 'Get',
+            dataType: 'json'
+        }, function(ret, err) {
+            if (ret) {
+                $("#doctor").text(ret.username + " " + " " + ret.deptName);
+                $("#hospital").text("主治医师：" + " " + ret.hosName)
+                    // alert( JSON.stringify( ret ) );
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+
+    }
+</script>
+
 </html>

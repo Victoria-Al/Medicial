@@ -156,13 +156,12 @@
     </div>
 
         <!-- ($api.byId('checkbox').checked); -->
-
-
     <!-- 用户列表 -->
     <ul id="mainList">
 
     </ul>
 </body>
+<script type="text/javascript" src="../script/url.js"></script>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
 
@@ -173,7 +172,7 @@
 
     apiready = function() {
         api.ajax({
-            url: 'http://192.168.1.101:8080/userList',
+            url: wurl + 'userList',
             method: 'get',
             dataType: 'json'
         },function(ret, err){
@@ -297,7 +296,7 @@
             });
 
             api.ajax({
-                url: 'http://192.168.1.101:8080/saveGroupUsers',
+                url: wurl + 'saveGroupUsers',
                 method: 'post',
                 data: {
                     values: {
@@ -318,7 +317,6 @@
             alert("请选择参与群聊的医生");
         }
         // alert(userInfos);
-
     })
 
 </script>

@@ -167,13 +167,14 @@
  </div>
 </form>
 </body>
+<script type="text/javascript" src="../script/url.js"></script>
 <script type="text/javascript" src="../script/api.js"></script>
 <script src="../script/zepto.min.js"></script>
 
 <script type="text/javascript">
     apiready = function() {
         api.ajax({
-            url: 'http://192.168.198.129:8080/index',
+            url: wurl + 'index',
             // url: 'http://192.168.198.18:8080/index',
             // url: 'http://192.168.1.100:8080/index',
             method: 'get',

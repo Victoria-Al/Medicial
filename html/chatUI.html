@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
@@ -59,7 +57,7 @@
         .xian {
             border-top: 1px solid lightgrey;
             position: relative;
-            top: 13px;
+            top: 20px;
         }
 
         .renming {
@@ -92,7 +90,7 @@
         .xian2 {
             border-top: 7px solid lightgrey;
             position: relative;
-            top: 70px;
+            top: 80px;
         }
 
         .bingren2 {
@@ -116,7 +114,7 @@
 
         .xinxi {
             position: relative;
-            top: 78px;
+            top: 75px;
             padding: 0px 0px 0px 60px;
             font-size: 13px;
             color: grey;
@@ -124,7 +122,7 @@
 
         .zhaiyao {
             position: relative;
-            top: 95px;
+            top: 80px;
             padding: 0px 0px 0px 20px;
         }
 
@@ -246,11 +244,11 @@
             <p class="bingren2">病人信息</p>
             <div class="xian3"></div>
             <div class="renming3">
-                <p class="renming4">张三</p>
-                <p class="xinxi">男 59岁 12号床</p>
+                <p class="renming4" id="patient"></p>
+                <p class="xinxi" id="info"></p>
                 <p class="zhaiyao">病情摘要：</p>
             </div>
-            <div class="jcss" onclick="window.location.href='jianceshuju.html'">
+            <div class="jcss" id="saveId">
                 <img id="img4" class="q4" src="../image/sjjc.png">
                 <span class="shuju">实时监测数据</span>
             </div>
@@ -264,7 +262,6 @@
             <p class="hudong2">会诊互动区</p>
         </div>
         <div class="xian5"></div>
-
     </div>
 
     <div class="aui-content aui-content-padded" id="message-content">
@@ -309,6 +306,7 @@
       </div>
     </div>  -->
 </body>
+<script type="text/javascript" src="../script/url.js"></script>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript" src="../script/aui-waterfall.js"></script>
 <script type="text/javascript" src="../script/aui-tab.js"></script>
@@ -331,6 +329,7 @@
     // 当前要发送的聊天消息 currContent
     var currContent = "";
 
+    var pId = "";
     var webSocket;
 
     $("#back").click(function () {
@@ -339,8 +338,19 @@
         });
     })
 
+    $("#img4").click(function () {
+        api.openWin({
+            type: 'fade',
+            name: 'jiance',
+            url: './jianceshuju.html',
+            pageParam: {
+                name: 'test'
+            }
+        });
+    })
+
     function chat( id ) {
-        var Wurl = 'ws://192.168.1.101:8080/chat/' + id;
+        var Wurl = ws + id;
         webSocket = "";
         // alert(Wurl);
         if (window.WebSocket || window.MozWebSocket) {
@@ -375,8 +385,6 @@
         // 消息显示
         function setContent(curText) {
             $("#message-content").append(curText);
-            window.location.reload();
-            
         }
     }
 
@@ -399,7 +407,7 @@
 
     function getChat() {
         api.ajax({
-            url: 'http://192.168.1.101:8080/getChatContent',
+            url: wurl + 'getChatContent',
             method: 'Get',
             dataType: 'json'
         },function(ret, err){
@@ -439,9 +447,34 @@
         });
     }
 
-    apiready = function() {
+    $("#saveId").click(function () {
         api.ajax({
-            url: 'http://192.168.1.101:8080/getUserInfo',
+            url: wurl + 'getPatientId',
+            method: 'post',
+            data: {
+                values: {
+                    'pId': pId
+                },
+            }
+        },function(ret, err){
+            if (ret) {
+                // alert( JSON.stringify( ret ) );
+                api.openWin({
+                    name: 'jiance',
+                    url: './jianceshuju.html',
+                    pageParam: {
+                        name: 'test'
+                    }
+                });
+            } else {
+                // alert( JSON.stringify( err ) );
+            }
+        });
+    })
+
+    function getUserInfo() {
+        api.ajax({
+            url: wurl + 'getUserInfo',
             method: 'Get',
             dataType: 'json'
         },function(ret, err){
@@ -452,9 +485,11 @@
                 getChat();
             }
         });
+    }
 
+    function queryUserInfo() {
         api.ajax({
-            url: 'http://192.168.1.101:8080/queryUserInfo',
+            url: wurl + 'queryUserInfo',
             method: 'Get',
             dataType: 'json'
         },function(ret, err){
@@ -465,12 +500,33 @@
                 $("#doctor").text(ret.username + " "  + " " + ret.deptName);
                 $("#hospital").text("主治医师：" + " " + ret.hosName)
                 // alert( JSON.stringify( ret ) );
-
-
             } else {
                 // alert( JSON.stringify( err ) );
             }
         });
+    }
+
+    apiready = function() {
+        getUserInfo();
+
+        queryUserInfo();
+
+        api.ajax({
+            url: wurl + 'getPatientInfo',
+            method: 'Get',
+            dataType: 'json'
+        },function(ret, err){
+            if (ret) {
+                // alert(buId);
+                pId = ret.id;
+                $("#patient").text(ret.pUserName);
+                $("#info").text(" " + ret.pSex + " " + ret.pAge + " " + ret.pBed);
+                // alert( JSON.stringify( ret ) );
+            } else {
+                // alert( JSON.stringify( err ) );
+            }
+        });
+
     }
 </script>
 

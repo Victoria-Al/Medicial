@@ -129,6 +129,7 @@
 
     </ul>
 </body>
+<script type="text/javascript" src="../script/url.js"></script>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
 
@@ -139,7 +140,7 @@
 
     apiready = function() {
         api.ajax({
-            url: 'http://192.168.43.90:8080/getPatientList',
+            url: wurl + 'getPatientList',
             method: 'get',
             dataType: 'json'
         },function(ret, err){
@@ -170,73 +171,30 @@
     // $("input[name='applymentid']:checked").length>1这句就可以判断checkbox的选择数量。
 
     function saveId( id ) {
-        api.openWin({
-            name: 'jiance',
-            url: './jianceshuju.html',
-            pageParam: {
-                name: 'test'
+        api.ajax({
+            url: wurl + 'getPatientId',
+            method: 'post',
+            data: {
+                values: {
+                    'pId': id
+                },
+            }
+        },function(ret, err){
+            if (ret) {
+                // alert( JSON.stringify( ret ) );
+                api.openWin({
+                    type: 'fade',
+                    name: 'jiance',
+                    url: './jianceshuju.html',
+                    pageParam: {
+                        name: 'test'
+                    }
+                });
+            } else {
+                // alert( JSON.stringify( err ) );
             }
         });
-
-
     }
 
-    var userInfos = "";
-    var length = 0;
-    $("#build").click(function () {
-        length = $("input[name='demo1']:checked").length;
-        // 获取被选中的userInfo
-        if (length != 0 && length < 5 ) {
-            $(".aui-checkbox").each(function(){
-                if($(this).prop("checked")==true){
-                   userInfos += ($(this).siblings().find('span').text() + " ");
-                }
-            })
-            // alert(userInfos);
-            // alert(length);
-
-            api.openFrame({
-                name: 'groupName',
-                url: './groupName_frm.html',
-                rect: {
-                    x: 0,
-                    y: 24,
-                    w: 'auto',
-                    h: 180
-                },
-                pageParam: {
-                    name: 'test'
-                },
-                bounces: true,
-                vScrollBarEnabled: true,
-                hScrollBarEnabled: true,
-            });
-
-            api.ajax({
-                url: 'http://192.168.1.101:8080/saveGroupUsers',
-                method: 'post',
-                data: {
-                    values: {
-                        'GroupUsers': userInfos
-                    }
-                },
-                dataType: "json"
-            },function(ret, err){
-                if (ret) {
-                    alert("传输成功" + JSON.stringify(ret));
-                } else {
-                    alert( JSON.stringify( err ) );
-                }
-            });
-        }else if(length >= 5){
-            alert("超过限定群聊人数");
-        }else {
-            alert("请选择参与群聊的医生");
-        }
-        // alert(userInfos);
-
-    })
-
 </script>
-
 </html>

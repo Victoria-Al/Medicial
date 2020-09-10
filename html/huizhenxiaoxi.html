@@ -159,20 +159,15 @@
   </div>
 </div>
 </body>
+<script type="text/javascript" src="../script/url.js"></script>
 <script type="text/javascript" src="../script/api.js"></script>
 <script src="../script/zepto.min.js"></script>
 <script type="text/javascript">
 
     function turnChat(id) {
-        api.openWin({
-            name: 'hzxq',
-            url: './huizhenxiangqing.html',
-            reload: true
-        });
-
         // alert(id);
         api.ajax({
-            url: 'http://192.168.1.101:8080/saveQueryId',
+            url: wurl + 'saveQueryId',
             method: 'post',
             data: {
                 values: {
@@ -182,6 +177,17 @@
             dataType: 'json'
         },function(ret, err){
             if (ret) {
+                api.openWin({
+                    name: 'hzxq',
+                    url: './chatUI.html',
+                    pageParam: {
+                        name: 'test'
+                    }
+                });
+                // api.closeFrame({
+                //     name: 'view'
+                // });
+
                 // alert(id);
                 // alert(JSON.stringify(ret));
             } else {
@@ -192,7 +198,7 @@
 
   apiready = function () {
       api.ajax({
-          url: 'http://192.168.1.101:8080/GroupList',
+          url: wurl + 'GroupList',
           method: 'Get',
           dataType: 'json'
       },function(ret, err){
@@ -200,7 +206,7 @@
           if (ret) {
               for (var i = 0; i < ret.length; i++) {
                   text += "<div class=" + "keming" + ">";
-                  text += "<div class=" + "xian" + " onclick=" + "turnChat(" + ret[i].groupId + ");" + ">";
+                  text += "<div class=" + "xian" + " tapmode" + " onclick=" + "turnChat(" + ret[i].groupId + ");" + ">";
                   text += "<img id=" + "img" + " class=" + "q" + " src=" + "../image/bs.jpg" + " width=" + "20" + ">";
                   text += "<p class=" + "renming2" + ">" + ret[i].groupName + "</p><p class=" + "zt" + ">" + ret[i].groupId + "</p></div>";
                   text += "<div class=" + "xian2" + "></div></div>";
@@ -211,7 +217,7 @@
       });
 
       api.ajax({
-          url: 'http://192.168.1.101:8080/GroupList2',
+          url: wurl + 'GroupList2',
           method: 'Get',
           dataType: 'json'
       },function(ret, err){

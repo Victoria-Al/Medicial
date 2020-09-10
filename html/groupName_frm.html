@@ -10,6 +10,20 @@
         .login-third {
             margin-top: 3rem;
         }
+        .option select{
+          /*清除select聚焦时候的边框颜色*/
+          outline: none;
+          /*将select的宽高等于div的宽高*/
+          width: 100%;
+            height: 40px;
+            line-height: 40px;
+          /*隐藏select的下拉图标*/
+          appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+          /*通过padding-left的值让文字居中*/
+          padding-left: 65px;
+          }
 	</style>
 </head>
 <body>
@@ -26,38 +40,75 @@
                 </div>
             </li>
         </ul>
+        <div class="option">
+        <span style="padding-left: 20px">选择患者：</span>
+            <select style="font-size: 18px; height:28px;left:20px" id="pUserName">
+                <option>请选择所诊疗的患者</option>
+            </select>
+        </div>
     </section>
+
     <section class="aui-content-padded" id="submit">
         <div class="aui-btn aui-btn-block aui-btn-info aui-btn-sm" tapmode>创建群聊</div>
     </section>
 </body>
+<script type="text/javascript" src="../script/url.js"></script>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+
+    /*点击其他地方时，select会收起来*/
+    document.body.addEventListener('click',function(){
+        Option.style.display = 'none';
+    }.false);
+
+    var pUserName;
     apiready = function(){
-        api.parseTapmode();
+        api.ajax({
+            url: wurl + 'getPatientList',
+            method: 'get',
+            dataType: 'json',
+        }, function(ret, err) {
+            if (ret) {
+                for (var i = 0; i < ret.length; i++) {
+                    pUserName += "<option>" + ret[i].pUserName + "</option>";
+                    // deptName += "<option>" + ret[i].deptName + "</option>";
+                }
+                $("#pUserName").append(pUserName);
+                // $("#deptName").append(deptName);
+            } else {
+                alert(JSON.stringify(ret) + JSON.stringify(err));
+            }
+        });
+        return null;
+        $api.fixStatusBar($api.dom('#topbar'));
     };
 
     $("#submit").click(function () {
         var groName = document.getElementById("groupName").value;
+        var pName = document.getElementById('pUserName').value;
         api.ajax({
-            url: 'http://192.168.1.101:8080/chatBuildGroup',
+            url: wurl + 'chatBuildGroup',
             method: 'post',
             data: {
                 values: {
-                    'GroupName': groName
+                    'GroupName': groName,
+                    'pName': pUserName
                 },
             }
         },function(ret, err){
             if (ret) {
                 alert("成功创建" + JSON.stringify( ret ) );
                 window.location.href="./huizhenxiaoxi.html";
+                api.closeFrame({
+                    name: 'groupName'
+                });
+
             } else {
                 alert( JSON.stringify( err ) );
             }
         });
-
     })
 </script>
 </html>
