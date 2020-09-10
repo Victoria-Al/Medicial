@@ -340,9 +340,10 @@
     })
 
     function chat( id ) {
-        var Wurl = 'ws://192.168.198.129:8080/chat/' + id;
+        var Wurl = 'ws://192.168.1.101:8080/chat/' + id;
+        webSocket = "";
         // alert(Wurl);
-        if ("WebSocket" in window) {
+        if (window.WebSocket || window.MozWebSocket) {
             webSocket = new WebSocket(Wurl);
         } else {
             // 浏览器不支持 WebSocket
@@ -350,7 +351,7 @@
         }
 
         webSocket.onopen = function () {
-            alert("已连接");
+            // alert("已连接");
         };
 
         webSocket.onmessage = function (evt) {
@@ -374,6 +375,8 @@
         // 消息显示
         function setContent(curText) {
             $("#message-content").append(curText);
+            window.location.reload();
+            
         }
     }
 
@@ -396,7 +399,7 @@
 
     function getChat() {
         api.ajax({
-            url: 'http://192.168.198.129:8080/getChatContent',
+            url: 'http://192.168.1.101:8080/getChatContent',
             method: 'Get',
             dataType: 'json'
         },function(ret, err){
@@ -438,7 +441,7 @@
 
     apiready = function() {
         api.ajax({
-            url: 'http://192.168.198.129:8080/getUserInfo',
+            url: 'http://192.168.1.101:8080/getUserInfo',
             method: 'Get',
             dataType: 'json'
         },function(ret, err){
@@ -451,7 +454,7 @@
         });
 
         api.ajax({
-            url: 'http://192.168.198.129:8080/queryUserInfo',
+            url: 'http://192.168.1.101:8080/queryUserInfo',
             method: 'Get',
             dataType: 'json'
         },function(ret, err){

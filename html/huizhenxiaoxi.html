@@ -166,12 +166,13 @@
     function turnChat(id) {
         api.openWin({
             name: 'hzxq',
-            url: './huizhenxiangqing.html'
+            url: './huizhenxiangqing.html',
+            reload: true
         });
 
         // alert(id);
         api.ajax({
-            url: 'http://192.168.198.129:8080/saveQueryId',
+            url: 'http://192.168.1.101:8080/saveQueryId',
             method: 'post',
             data: {
                 values: {
@@ -191,7 +192,7 @@
 
   apiready = function () {
       api.ajax({
-          url: 'http://192.168.198.129:8080/GroupList',
+          url: 'http://192.168.1.101:8080/GroupList',
           method: 'Get',
           dataType: 'json'
       },function(ret, err){
@@ -210,7 +211,7 @@
       });
 
       api.ajax({
-          url: 'http://192.168.198.129:8080/GroupList2',
+          url: 'http://192.168.1.101:8080/GroupList2',
           method: 'Get',
           dataType: 'json'
       },function(ret, err){
