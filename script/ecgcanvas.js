@@ -153,19 +153,19 @@ function addfilltext() {
     for (var E = 0; E < draw_lines_index.length; E++) {
         D = D + C;
         ctx.font = "bold 14px ��Բ";
-        ctx.fillText("" + A[draw_lines_index[E]] + "", 10, D)
+        ctx.fillText("" + draw_lines_index[E] + "", 10, D)
     }
 }
 function showgrid() {
     var A = document.getElementById("chkshowgrid").checked;
     if (A) {
-        drawgrid()
+        // drawgrid()
     } else {
         ctx.beginPath();
         ctx.clearRect(0, 0, width, height);
         ctx.stroke()
     }
-    addfilltext()
+    // addfilltext()
 }
 function saveclick() {
     oQueue.MakeEmpty();
@@ -206,7 +206,7 @@ function saveclick() {
     ctx.clearRect(0, 0, width, height);
     ctx.stroke();
     drawgrid();
-    addfilltext();
+    // addfilltext();
     current_times = 0;
     loop()
 }

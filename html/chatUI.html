@@ -129,28 +129,28 @@
         .q4 {
             width: 8%;
             position: relative;
-            top: 45px;
-            padding: 0px 0px 0px 290px;
+            top: 40px;
+            left: 260px;
         }
 
         .shuju {
             position: relative;
-            top: 50px;
-            padding: 0px 0px 0px 265px;
+            top: 45px;
+            padding: 0px 0px 0px 235px;
             font-size: 15px;
         }
 
         .q5 {
             width: 8%;
             position: relative;
-            bottom: 14px;
-            left: 400px;
+            bottom: 13px;
+            left: 360px;
         }
 
         .fujian2 {
             position: relative;
             bottom: 11px;
-            padding: 0px 0px 0px 389px;
+            padding: 0px 0px 0px 349px;
             font-size: 15px;
         }
 
@@ -231,7 +231,7 @@
     </header>
     <div style="top: 23px">
         <div class="yisheng" style="top: 25px">
-            <p class="yisheng2" style="top: 19px">主治医生信息</p>
+            <p class="yisheng2" style="top: 22px">主治医生信息</p>
             <div class="xian"></div>
             <div class="renming">
                 <img id="img3" class="q3" src="../image/tx2.jpg" width="20">
@@ -252,7 +252,7 @@
                 <img id="img4" class="q4" src="../image/sjjc.png">
                 <span class="shuju">实时监测数据</span>
             </div>
-            <div class="fujian">
+            <div class="fujian" id="history">
                 <img id="img5" class="q5" src="../image/fujian.png">
                 <p class="fujian2">更多附件</p>
             </div>
@@ -345,6 +345,28 @@
             url: './jianceshuju.html',
             pageParam: {
                 name: 'test'
+            }
+        });
+    })
+
+    $("#history").click(function () {
+        api.ajax({
+            url: wurl + 'getPatientId',
+            method: 'post',
+            data: {
+                values: {
+                    'pId': pId
+                },
+            }
+        },function(ret, err){
+            if (ret) {
+                // alert( JSON.stringify( ret ) );
+                api.openWin({
+                    name: 'history',
+                    url: './bingshi.html'
+                });
+            } else {
+                // alert( JSON.stringify( err ) );
             }
         });
     })

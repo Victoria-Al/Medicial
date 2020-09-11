@@ -1,79 +1,119 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+
+    <script type="text/javascript" src="../script/api.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../script/zepto.min.js"></script>
     <style>
-     .title{
-       color:#fff;
-       font-size: 23px;
-       padding: 10px 0px 10px 10px;
-       background-color: grey;
-       height: 30px;
-     }
-     .bt{
-       position: relative;
-       top:1px;
-       padding: 0px 0px 0px 30px;
-       font-size: 20px;
-     }
-     .q2{
-    width:80%;
-    height:60%;
-    position: relative;
-    bottom: 40px;
-    left:15%;
-     }
-     .yjff{
-       background-color: lightgrey;
-       height: 250px;
-       width:80%;
-       position: relative;
-       left:50px;
-       top:20px;
-     }
-     .yjff2{
-       background-color: lightgrey;
-       height: 250px;
-       width:80%;
-       position: relative;
-       left:50px;
-       top:80px;
-     }
-     .bs1{
-       position: relative;
-       padding: 0px 0px 0px 30px;
-       font-size: 20px;
-     }
-     .bs2{
-       position: relative;
-       padding: 0px 0px 0px 30px;
-       top:60px;
-       font-size: 20px;
-     }
-</style>
+        .title {
+            color: #fff;
+            font-size: 23px;
+            padding: 10px 0px 10px 10px;
+            background-color: grey;
+            height: 30px;
+        }
+
+        .bt {
+            position: relative;
+            top: 1px;
+            padding: 0px 0px 0px 30px;
+            font-size: 20px;
+        }
+
+        .q2 {
+            width: 80%;
+            height: 60%;
+            position: relative;
+            bottom: 40px;
+            left: 15%;
+        }
+
+        .yjff {
+            background-color: #dbeeec;
+            height: 250px;
+            width: 90%;
+            position: relative;
+            left: 25px;
+            top: 30px;
+        }
+
+        .yjff2 {
+            background-color: lightgrey;
+            height: 250px;
+            width: 80%;
+            position: relative;
+            left: 50px;
+            top: 80px;
+        }
+
+        .bs1 {
+            position: relative;
+            top: 15px;
+            padding: 0px 0px 0px 30px;
+            font-size: 25px;
+        }
+
+        .bs2 {
+            position: relative;
+            padding: 0px 0px 0px 30px;
+            top: 60px;
+            font-size: 20px;
+        }
+    </style>
 </head>
+
 <body>
-  <header id="kt">
-  <div class="title">
-    <p class="bt">病人病史</p>
-  </div>
-  <a href="huizhenxiangqing.html" class="fanhui">
-    <img id="img2" class="q2" src="../image/abc_ic_ab_back_holo_dark.png">
-  </a>
-  </header>
-<form class="a" action="index.html" method="post">
-<div class="bs1">病人病史：</div>
-<div class="yjff">
-</div>
-<div class="bs2">病情描述：</div>
-<div class="yjff2">
-</div>
-</form>
+    <header id="kt" style="top: 23px">
+        <div class="title" style="top: 23px">
+            <p class="bt">患者资料</p>
+        </div>
+        <a id="back" class="fanhui">
+            <img id="img2" class="q2" src="../image/abc_ic_ab_back_holo_dark.png">
+        </a>
+    </header>
+    <div class="bs1">患者病史：</div>
+    <div class="yjff">
+        <p class="fenxi3" id="textView1" style="width: 90%; word-wrap:break-word;  word-break:break-all; overflow: hidden;"></p>
+        <p class="fenxi3" id="textView2" style="width: 90%; word-wrap:break-word;  word-break:break-all; overflow: hidden;"></p>
+    </div>
 </body>
+
+<script type="text/javascript" src="../script/url.js"></script>
 <script type="text/javascript" src="../script/api.js"></script>
-<script src="../script/zepto.min.js"></script>
+<script type="text/javascript">
+    $("#back").click(function() {
+        api.closeWin({
+            name: 'history'
+        });
+    })
+
+    apiready = function () {
+        getPatientInfo();
+    }
+
+    function getPatientInfo() {
+        api.ajax({
+            url: wurl + 'getPatient',
+            method: 'Get',
+            dataType: 'json'
+        }, function(ret, err) {
+            if (ret) {
+                // alert(JSON.stringify(ret));
+                $("#textView1").text(" " + ret.pHistory1);
+                $("#textView2").text(" " + ret.pHistory2);
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+    }
+</script>
+
 </html>

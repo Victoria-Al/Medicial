@@ -21,11 +21,11 @@
 	<preference name="debug" value="true"/>
 	<preference name="statusBarAppearance" value="true"/>
 	<permission name="readPhoneState" />
-	<permission name="camera" />
-	<permission name="record" />
-	<permission name="location" />
-	<permission name="fileSystem" />
-	<permission name="internet" />
+	<permission name="camera" value="true" />
+	<permission name="record" value="true"/>
+	<permission name="location" value="true"/>
+	<permission name="fileSystem" value="true"/>
+	<permission name="internet" value="true" />
 	<permission name="bootCompleted" />
 	<permission name="hardware" />
 </widget>
