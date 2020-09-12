@@ -338,6 +338,11 @@
         });
     })
 
+
+    function scrollWindow() {
+        document.getElementById("message-content").scrollTop=10000;
+    }
+
     $("#img4").click(function () {
         api.openWin({
             type: 'fade',
@@ -398,6 +403,7 @@
             currContent += "</div>";
             currContent += "</div>";
             setContent(currContent);
+            window.reload();
         }
 
         webSocket.onclose = function () {
@@ -407,6 +413,7 @@
         // 消息显示
         function setContent(curText) {
             $("#message-content").append(curText);
+            setTimeout("scrollWindow()", 200);
         }
     }
 
@@ -505,6 +512,7 @@
                 cuserName = ret.username;
                 // alert(cuId);
                 getChat();
+                setTimeout("scrollWindow()", 200);
             }
         });
     }
