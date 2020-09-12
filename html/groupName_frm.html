@@ -88,19 +88,49 @@
     $("#submit").click(function () {
         var groName = document.getElementById("groupName").value;
         var pName = document.getElementById('pUserName').value;
+        alert(pName);
         api.ajax({
             url: wurl + 'chatBuildGroup',
             method: 'post',
             data: {
                 values: {
                     'GroupName': groName,
-                    'pName': pUserName
+                    'pName': pName
                 },
             }
         },function(ret, err){
             if (ret) {
-                alert("成功创建" + JSON.stringify( ret ) );
-                window.location.href="./huizhenxiaoxi.html";
+                alert("成功创建");
+                api.parseTapmode();
+
+                api.openFrame({
+                    name: 'view',
+                    url: './huizhenxiaoxi.html',
+                    rect: {
+                        x: 0,
+                        y: 24,
+                        w: 'auto',
+                        h: 762
+                    },
+                    pageParam: {
+                        name: 'menu'
+                    },
+                    vScrollBarEnabled: false,
+                    hScrollBarEnabled: false
+                });
+
+                api.closeFrame({
+                    name: 'listContact'
+                });
+
+                api.closeFrame({
+                    name: 'pa'
+                });
+
+                api.closeFrame({
+                    name: 'index'
+                });
+
                 api.closeFrame({
                     name: 'groupName'
                 });

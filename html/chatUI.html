@@ -115,7 +115,7 @@
         .xinxi {
             position: relative;
             top: 75px;
-            padding: 0px 0px 0px 60px;
+            padding: 0px 0px 0px 70px;
             font-size: 13px;
             color: grey;
         }
@@ -246,7 +246,7 @@
             <div class="renming3">
                 <p class="renming4" id="patient"></p>
                 <p class="xinxi" id="info"></p>
-                <p class="zhaiyao">病情摘要：</p>
+                <p class="zhaiyao" id="zhai" style="width:240px;height:30px "></p>
             </div>
             <div class="jcss" id="saveId">
                 <img id="img4" class="q4" src="../image/sjjc.png">
@@ -267,32 +267,10 @@
     <div class="aui-content aui-content-padded" id="message-content">
         <p class="aui-text-center history-date">7-16 20:00</p>
         <div class="aui-chat-sender">
-            <div class="aui-chat-sender-avatar"><img src="../image/demo1.png"></div>
+            <div class="aui-chat-sender-avatar"><img src="../image/3.png"></div>
             <div class="aui-chat-sender-cont">
                 <div class="aui-chat-right-triangle"></div>
                 <span>Hello!!</span>
-            </div>
-        </div>
-        <div class="aui-chat-receiver">
-            <div class="aui-chat-receiver-avatar"><p>陈医生</p><img src="../image/demo2.png"></div>
-            <div class="aui-chat-receiver-cont">
-                <div class="aui-chat-left-triangle"></div>
-                <span>你好！</span>
-            </div>
-        </div>
-        <div class="aui-chat-sender">
-            <div class="aui-chat-sender-avatar"><img src="../image/demo1.png"></div>
-
-            <div class="aui-chat-sender-cont">
-                <div class="aui-chat-right-triangle"></div>
-                <span>nice to meet you!</span>
-            </div>
-        </div>
-        <div class="aui-chat-receiver">
-            <div class="aui-chat-receiver-avatar"><p>陈医生</p><img src="../image/demo2.png"></div>
-            <div class="aui-chat-receiver-cont">
-                <div class="aui-chat-left-triangle"></div>
-                <span>很高兴见到你！</span>
             </div>
         </div>
     </div>
@@ -551,6 +529,11 @@
                 pId = ret.id;
                 $("#patient").text(ret.pUserName);
                 $("#info").text(" " + ret.pSex + " " + ret.pAge + " " + ret.pBed);
+                if(typeof(ret.pHistory1) === 'undefined'){
+                    $("#zhai").text("摘要：暂无");
+                }else{
+                    $("#zhai").text("摘要：" + ret.pHistory1);
+                }
                 // alert( JSON.stringify( ret ) );
             } else {
                 // alert( JSON.stringify( err ) );

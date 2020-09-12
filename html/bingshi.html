@@ -175,7 +175,7 @@
             position: relative;
             top: 15px;
             padding: 0px 0px 0px 30px;
-            font-size: 25px;
+            font-size: 22px;
         }
 
         .bs2 {
@@ -192,12 +192,13 @@
             width: 90%;
             padding-left: 20px;
             padding-top: 15px;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
+            line-height: normal;
         }
         section{
             width: 90%;
-            height: 40px;
+            height: 60px;
             padding-left: 24px;
             padding-top: 24px;
             font-size: 30px;
@@ -217,9 +218,8 @@
     </header>
     <div class="bs1">患者病史：</div>
     <div class="yjff">
-        <textarea cols="5" rows="5" class="textarea" id="textView1"></textarea>
-        <textarea cols="10" rows="14" class="textarea" id="textView2" style="top: 120px">sd</textarea>
-        <p class="fenxi3" id="textView1" style="width: 90%; word-wrap:break-word;  word-break:break-all; overflow: hidden;"></p>
+        <textarea cols="10" rows="5" class="textarea" id="textView1"></textarea>
+        <textarea cols="10" rows="14" class="textarea" id="textView2" style="top: 120px"></textarea>
     </div>
     <section class="aui-content-padded" id="submit">
         <div class="aui-btn aui-btn-block aui-btn-info aui-btn-sm" tapmode>保存病史</div>
@@ -239,6 +239,9 @@
 
     $("#submit").click(function () {
         saveHistory();
+        alert("修改成功！");
+        window.reload;
+
     })
 
     apiready = function () {
@@ -246,8 +249,7 @@
     }
 
     function saveHistory() {
-        var pHistory1 = $("#textView1").text();
-        alert(pHistory1);
+        var pHistory1 = document.getElementById('textView1').value;
         var pHistory2 = document.getElementById('textView2').value;
         api.ajax({
             url: wurl + 'saveHistory',
@@ -255,13 +257,12 @@
             data: {
                 values: {
                     'pHistory1': pHistory1,
-                    'pHistory2': pHistory2,
+                    'pHistory2': pHistory2
                 },
             }
         },function(ret, err){
             if (ret) {
                 getPatientInfo();
-                alert(1);
             } else {
                 alert( JSON.stringify( err ) );
             }
@@ -278,8 +279,17 @@
             if (ret) {
                 pId = ret.id;
                 // alert(JSON.stringify(ret));
-                $("#textView1").text(" " + ret.pHistory1);
-                $("#textView2").text(" " + ret.pHistory2);
+                if(typeof(ret.pHistory1) === 'undefined'){
+                    $("#textView1").text("主诉：" + "");
+                }else {
+                    $("#textView1").text( ret.pHistory1);
+                }
+
+                if(typeof(ret.pHistory1) === 'undefined'){
+                    $("#textView2").text("现病史：" + "");
+                }else {
+                    $("#textView2").text( ret.pHistory2);
+                }
             } else {
                 alert(JSON.stringify(err));
             }
