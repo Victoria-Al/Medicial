@@ -153,7 +153,7 @@ function addfilltext() {
     for (var E = 0; E < draw_lines_index.length; E++) {
         D = D + C;
         ctx.font = "bold 14px ��Բ";
-        ctx.fillText("" + draw_lines_index[E] + "", 10, D)
+        // ctx.fillText("" + draw_lines_index[E] + "", 10, D)
     }
 }
 function showgrid() {

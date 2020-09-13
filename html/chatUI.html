@@ -224,9 +224,6 @@
             <a id="back" class="fanhui">
                 <img id="img1" class="q1" src="../image/abc_ic_ab_back_holo_dark.png">
             </a>
-            <a href="bingshi.html" class="bs">
-                <img id="img2" class="q2" src="../image/lsjl1.png">
-            </a>
         </div>
     </header>
     <div style="top: 23px">
@@ -373,6 +370,30 @@
             currContent = "";
             var received_msg = evt.data;
             var obj = JSON.parse(received_msg);
+            // // 如果发送者userId == buildUserId，就显示在右边
+            // if (id === buId) {
+            //     currContent = "";
+            //     currContent += "<div class=" + "aui-chat-sender>";
+            //     currContent += "<div class=" + "aui-chat-sender-avatar" + "><img src=" + "../image/3.png" + "></div>";
+            //     currContent += "<div class=" + "aui-chat-sender-cont>";
+            //     currContent += "<div class=" + "aui-chat-right-triangle" + "></div>";
+            //     currContent += "<span>" + obj.textMessage + "</span>";
+            //     currContent += "</div>";
+            //     currContent += "</div>";
+            //     setContent(currContent);
+            // }else {
+            //     // 如果发送者userId != buildUserId，就显示在左边并伴有姓名
+            //     currContent = "";
+            //     currContent += "<div class=" + "aui-chat-receiver>";
+            //     currContent += "<div class=" + "aui-chat-receiver-avatar" + "><p>" + " " + obj.sendUserName + "</p><img src=" + "../image/3.png" + "></div>";
+            //     currContent += "<div class=" + "aui-chat-receiver-cont>";
+            //     currContent += "<div class=" + "aui-chat-left-triangle" + "></div>";
+            //     currContent += "<span>" + obj.textMessage + "</span>";
+            //     currContent += "</div>";
+            //     currContent += "</div>";
+            //     $("#message-content").append(currContent);
+            // }
+
             currContent += "<div class=" + "aui-chat-sender>";
             currContent += "<div class=" + "aui-chat-sender-avatar" + "><img src=" + "../image/3.png" + "></div>";
             currContent += "<div class=" + "aui-chat-sender-cont>";
@@ -381,7 +402,8 @@
             currContent += "</div>";
             currContent += "</div>";
             setContent(currContent);
-            window.reload();
+            getChat();
+            // window.reload;
         }
 
         webSocket.onclose = function () {

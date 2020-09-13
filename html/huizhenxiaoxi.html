@@ -18,17 +18,17 @@
             height: 100%;
             width: 100%;
         }
-        
+
         #kt {}
-        
+
         .title {
             color: #fff;
             font-size: 23px;
             padding: 0px 0px 10px 10px;
             background-color: grey;
-            height: 60px;
+            height: 40px;
         }
-        
+
         .q2 {
             width: 30%;
             height: 60%;
@@ -36,7 +36,7 @@
             top: 10px;
             left: 165%;
         }
-        
+
         .q3 {
             width: 7%;
             height: 5%;
@@ -44,7 +44,7 @@
             bottom: 32px;
             left: 90%;
         }
-        
+
         .q {
             width: 8%;
             height: 60%;
@@ -52,13 +52,13 @@
             top: 20px;
             left: 10px;
         }
-        
+
         .renming2 {
             position: relative;
             bottom: 25px;
             padding: 0px 0px 0px 60px;
         }
-        
+
         .zt {
             position: relative;
             bottom: 20px;
@@ -66,23 +66,23 @@
             font-size: 13px;
             color: grey;
         }
-        
+
         .xian {
             border-top: 1px solid lightgrey;
             line-height: 20px;
         }
-        
+
         .xian2 {
             border-bottom: 1px solid lightgrey;
             border-top: 1px solid lightgrey;
             line-height: 20px;
         }
-        
+
         .xian3 {
             border-bottom: 1px solid lightgrey;
             line-height: 20px;
         }
-        
+
         .hzxx {
             background-color: #fff;
             width: 33.3%;
@@ -90,20 +90,20 @@
             position: relative;
             top: 210px;
         }
-        
+
         .q4 {
             width: 17%;
             position: relative;
             top: 13px;
             left: 63px;
         }
-        
+
         .hzxx3 {
             position: relative;
             left: 47px;
             top: 15px;
         }
-        
+
         .hzxx4 {
             background-color: #fff;
             width: 33.3%;
@@ -112,20 +112,20 @@
             left: 160px;
             top: 139.5px;
         }
-        
+
         .q5 {
             width: 17%;
             position: relative;
             top: 13px;
             left: 63px;
         }
-        
+
         .hzxx6 {
             position: relative;
             left: 53px;
             top: 15px;
         }
-        
+
         .hzxx7 {
             background-color: #fff;
             width: 33.3%;
@@ -134,20 +134,20 @@
             left: 320px;
             top: 70px;
         }
-        
+
         .q6 {
             width: 25%;
             position: relative;
             top: 4px;
             left: 60px;
         }
-        
+
         .hzxx9 {
             position: relative;
             padding: 0px 0px 0px 48px;
             top: 1px;
         }
-        
+
         .xian4 {
             border-top: 1px solid lightgrey;
             position: relative;
@@ -159,12 +159,7 @@
 <body>
     <header id="kt">
         <div class="title">会诊消息
-            <a class="sousuo">
-                <img id="img2" class="q2" src="../image/fdj.png">
-            </a>
-            <a class="sousuo2">
-                <img id="img2" onclick="window.location.href='fqyq.html'" class="q3" src="../image/tj.png">
-            </a>
+
         </div>
     </header>
 
@@ -173,12 +168,7 @@
             <div class="xian3" onclick="turnChat();">
                 <img id="img" class="q" src="../image/musiclistcommet.png" width="20">
                 <p class="renming2">章鱼哥医生</p>
-                <p class="zt">那就先给李四病人进行保守治疗吧。</p>
-            </div>
-            <div class="xian3" id="ad">
-                <img id="img" class="q" src="../image/bs.jpg" width="20">
-                <p class="renming2">李四病人——会诊详情</p>
-                <p class="zt">妇产科 3号病房 5号床 性别：女 30岁</p>
+                <p class="zt">那就先给某某病人进行保守治疗吧。</p>
             </div>
         </div>
     </div>
@@ -231,7 +221,7 @@
                         text += "<div class=" + "keming" + ">";
                         text += "<div class=" + "xian" + " tapmode" + " onclick=" + "turnChat(" + ret[i].groupId + ");" + ">";
                         text += "<img id=" + "img" + " class=" + "q" + " src=" + "../image/bs.jpg" + " width=" + "20" + ">";
-                        text += "<p class=" + "renming2" + ">" + ret[i].groupName + "</p><p class=" + "zt" + ">" + ret[i].groupId + "</p></div>";
+                        text += "<p class=" + "renming2" + ">" + ret[i].groupName + "</p><p class=" + "zt" + ">" + "大家好，我是" + ret[i].userName + "医生" +"</p></div>";
                         text += "<div class=" + "xian2" + "></div></div>";
                     }
                     $("#view").append(text);
@@ -249,7 +239,7 @@
                         text += "<div class=" + "keming" + ">";
                         text += "<div class=" + "xian" + " onclick=" + "turnChat(" + ret[i].groupId + ");" + ">";
                         text += "<img id=" + "img" + " class=" + "q" + " src=" + "../image/bs.jpg" + " width=" + "20" + ">";
-                        text += "<p class=" + "renming2" + ">" + ret[i].groupName + "</p><p class=" + "zt" + ">" + ret[i].groupId + "</p></div>";
+                        text += "<p class=" + "renming2" + ">" + ret[i].groupName + "</p><p class=" + "zt" + ">" + "大家好" + "</p></div>";
                         text += "<div class=" + "xian2" + "></div></div>";
                     }
                     $("#view").append(text);
